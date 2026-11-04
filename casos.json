@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-03T17:23",
+ "actualizado": "2026-11-03T20:50",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -199,6 +199,37 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-10-02",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-009",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrita de tamaño mediano a grande, de pelo corto color miel, con orejas grandes y paraditas de puntas oscuras y hocico oscuro. Es delgadita. Tiene familia, pero hoy vive en la calle: las vecinas le dan de comer y Constanza le da seguimiento a su caso.",
+   "sexo": "Hembra",
+   "edad": "",
+   "salud": [],
+   "zona": "Alrededores del Chedraui, rumbo a El Condado",
+   "estado": "En seguimiento",
+   "ubicacion": "En la calle",
+   "canalizado_apaqro": "No sé",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-009/foto-1.jpg",
+    "casos/2026-11-009/foto-2.jpg"
+   ],
+   "avistamientos": [
+    {
+     "fecha": "2026-10-10",
+     "zona": "Estacionamiento del Chedraui",
+     "comentario": "Andaba mojada por la lluvia en el estacionamiento, junto con otro perrito café con blanco."
+    }
+   ],
+   "novedades": [],
+   "fecha": "2026-09-20",
    "fecha_tipo": "compartido"
   }
  ]
