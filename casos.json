@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-03T21:26",
+ "actualizado": "2026-11-03T21:52",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -259,6 +259,78 @@
    "novedades": [],
    "fecha": "2026-08-27",
    "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-011",
+   "tipo_reporte": "perdida",
+   "especie": "Perrito",
+   "nombre": "Benito",
+   "descripcion": "Perrito de tamaño pequeño, de pelaje gris y negro, con barba y cejas canosas. Se salió de casa. Es muy nervioso: si lo ves, no trates de agarrarlo porque tratará de huir; mejor avisa a su familia. Su humana es una persona de la tercera edad y necesita ayuda para que regrese a casa.",
+   "sexo": "",
+   "edad": "",
+   "salud": [],
+   "zona": "Podría estar en Las Teresas, Kellogs, Campo Militar o Vías de Carrillo",
+   "estado": "Perdida",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Su familia (cartel ¡Se busca!): WhatsApp 4421232173",
+   "fotos": [
+    "casos/2026-11-011/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-09-06",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-012",
+   "tipo_reporte": "perdida",
+   "especie": "Perrito",
+   "nombre": "Skipper",
+   "descripcion": "Perrito husky de pelo blanco con manto gris y ojitos azules. Trae collar negro. Fue visto por última vez en la calle principal de San Miguel Amazcala y su familia lo está esperando.",
+   "sexo": "Macho",
+   "edad": "",
+   "salud": [],
+   "zona": "San Miguel Amazcala",
+   "estado": "Perdida",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Su familia (cartel Se busca): 4422835117",
+   "fotos": [
+    "casos/2026-11-012/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-08-31",
+   "fecha_tipo": "evento"
+  },
+  {
+   "id_caso": "2026-11-013",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrito tipo husky, de pelo blanco con manchas café y negras. Tiene un ojo azul y otro café (heterocromía). Trae collar azul sin plaquita. Lo encontraron el jueves 27 de agosto, como a las 10 pm, cruzando una avenida en Colinas del Cimatario. Una familia lo tiene resguardado porque corría el riesgo de ser atropellado; está seguro, pero llora y extraña a su casa. Se busca a su familia.",
+   "sexo": "Macho",
+   "edad": "",
+   "salud": [],
+   "zona": "Colinas del Cimatario",
+   "estado": "Por confirmar",
+   "ubicacion": "Con quien la rescató",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Lizbeth, la familia que lo resguarda (cartel Busco a mi familia): 4422853648",
+   "fotos": [
+    "casos/2026-11-013/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-08-27",
+   "fecha_tipo": "evento"
   }
  ]
 }
