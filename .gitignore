@@ -1,0 +1,9 @@
+# Este repo es PÚBLICO. Nada de datos privados de la Sheet.
+*.csv
+*.xlsx
+*.xls
+*.tsv
+privado/
+casos-carga.json
+.DS_Store
+__pycache__/

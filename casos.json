@@ -1,0 +1,205 @@
+{
+ "actualizado": "2026-11-03T17:23",
+ "casos": [
+  {
+   "id_caso": "2026-11-001",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "Solovino",
+   "descripcion": "Perrito de tamaño chico a mediano, de pelo largo y alborotado. Cara, pecho y patas blancos o crema; lomo color beige claro. Nariz negra y ojitos oscuros. Sin collar visible. Se ve cariñoso y juguetón: se para en dos patitas para saludar.",
+   "sexo": "",
+   "edad": "",
+   "salud": [],
+   "zona": "Tejeda",
+   "estado": "Buscando familia",
+   "ubicacion": "No sé",
+   "canalizado_apaqro": "No sé",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-001/foto-1.jpg",
+    "casos/2026-11-001/foto-2.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-09-08",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-002",
+   "tipo_reporte": "perdida",
+   "especie": "Perrito",
+   "nombre": "Bimba",
+   "descripcion": "Perrita de tamaño pequeño a mediano, de pelo abultado color crema, blanco y beige, con ojitos café oscuro. Trae collar beige. Tiene 7 años, toma medicamentos y es perrita de soporte emocional: su familia la extraña mucho.",
+   "sexo": "Hembra",
+   "edad": "7 años",
+   "salud": [
+    "Esterilizada"
+   ],
+   "zona": "Real de la Loma, Col. Vista Real",
+   "estado": "Perdida",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Su familia (cartel ¡Se busca!): WhatsApp 5536419796",
+   "fotos": [
+    "casos/2026-11-002/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-10-15",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-003",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "Arka",
+   "descripcion": "Cachorrita de pelo corto negro con café, con una franja blanca en la carita y el pecho blanco; orejitas caídas. Es tímida, cariñosa y le gusta pasear. Busca una familia para amar.",
+   "sexo": "Hembra",
+   "edad": "5 meses",
+   "salud": [
+    "Vacunada",
+    "Desparasitada"
+   ],
+   "zona": "",
+   "estado": "Buscando familia",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Quien la cuida (cartel Adopta a Arka): 4482100006 / 4481078440",
+   "fotos": [
+    "casos/2026-11-003/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-11-03",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-004",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrita pequeña (aprox. 6-8 kg), tipo pug cruzada, de pelo corto color beige con carita negra y orejitas oscuras. Trae collar color vino. Es cariñosa, dulce y muy apegada; le gusta estar acompañada, es tranquila y noble, con mucha personalidad y ojitos que enamoran. Busca un hogar lleno de amor.",
+   "sexo": "Hembra",
+   "edad": "3-4 años",
+   "salud": [],
+   "zona": "",
+   "estado": "Buscando familia",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Quien la cuida (cartel ¡Adóptame!): 4446508062",
+   "fotos": [
+    "casos/2026-11-004/foto-1.jpg",
+    "casos/2026-11-004/foto-2.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-10-08",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-005",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrita border collie de pelo negro con blanco: franja blanca en la carita, pecho y patitas blancas, orejitas semicaídas. Está muy educada. Se encontró perdida y la está cuidando una vecina en su casa mientras aparece su familia.",
+   "sexo": "Hembra",
+   "edad": "",
+   "salud": [],
+   "zona": "",
+   "estado": "Por confirmar",
+   "ubicacion": "Con quien la rescató",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Irma, quien la encontró (publicación en Facebook): 4421881086",
+   "fotos": [
+    "casos/2026-11-005/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-10-04",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-006",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "\"La blanquita\": perrita de pelo blanco con manchitas café claro, orejitas caídas y carita noble. Te da la patita sólo con acercarle tu mano, sin decirle nada, y si golpeas suavemente tu abdomen se para en dos patas y se recarga en ti para que la acaricies. No hace del baño dentro de casa: busca salir al exterior.",
+   "sexo": "Hembra",
+   "edad": "",
+   "salud": [],
+   "zona": "",
+   "estado": "Buscando familia",
+   "ubicacion": "En un hogar temporal",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-006/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-10-06",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-007",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "\"La negrita\": perrita de pelo negro, corto y brillante, con orejitas caídas. Tranquila; pasea con correa. Hace del baño sólo en el patio o en el exterior, nunca dentro de casa.",
+   "sexo": "Hembra",
+   "edad": "",
+   "salud": [],
+   "zona": "",
+   "estado": "Buscando familia",
+   "ubicacion": "En un hogar temporal",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-007/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-10-06",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-008",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrita de pelo café clarito, con orejitas paradas. Llegó sin collar ni placa. Se ve que es de casa: sus uñas no están largas.",
+   "sexo": "Hembra",
+   "edad": "",
+   "salud": [],
+   "zona": "Condominio San Juan",
+   "estado": "Por confirmar",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-008/foto-1.jpg",
+    "casos/2026-11-008/foto-2.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-10-02",
+   "fecha_tipo": "compartido"
+  }
+ ]
+}

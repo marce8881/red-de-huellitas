@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Red de Huellitas · El Condado</title>
+<meta name="description" content="Rescates, adopciones y mascotas perdidas de la comunidad de El Condado, Corregidora, Querétaro. Página 100 % informativa.">
+<meta property="og:title" content="Red de Huellitas 🐾 El Condado">
+<meta property="og:description" content="Rescates, adopciones y mascotas perdidas de nuestra comunidad, al día.">
+<meta property="og:image" content="assets/banner.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Spectral:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papel: #f7f1e3; --tarjeta: #fffbf1; --tinta: #1f2a3d; --tinta-suave: #5a6375;
+    --dorado: #b8823a; --dorado-osc: #8f6221; --noche: #010611; --borde: #e6dcc6;
+    --perdida: #b4442e; --familia: #8f6221; --recuperacion: #5f7a32; --proceso: #2f5d8a;
+    --feliz: #2e7d4f; --confirmar: #6f6a60;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta);
+         font: 16px/1.5 "Nunito", system-ui, sans-serif; overflow-wrap: anywhere; }
+  h1, h2, h3 { font-family: "Spectral", Georgia, serif; line-height: 1.2; margin: 0; }
+  a { color: var(--dorado-osc); }
+  .envoltura { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  header { background: var(--noche); color: #fff; }
+  header img { display: block; width: 100%; max-height: 260px; object-fit: cover; }
+  .portada { padding: 20px 16px 24px; text-align: center; }
+  .portada h1 { font-size: clamp(28px, 6vw, 42px); }
+  .portada p { margin: 6px auto 18px; max-width: 640px; color: #e9e2d2; }
+  .botones { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px;
+         font-weight: 800; text-decoration: none; border: 2px solid transparent; cursor: pointer;
+         font-size: 15px; font-family: inherit; }
+  .btn-principal { background: var(--dorado); color: #fff; }
+  .btn-principal:hover { background: var(--dorado-osc); }
+  .btn-claro { background: transparent; color: #fff; border-color: #ffffff66; }
+  .btn-claro:hover { border-color: #fff; }
+
+  .resumen { margin: 24px 0 8px; }
+  .resumen h2 { font-size: 24px; margin-bottom: 4px; }
+  .resumen .sub { color: var(--tinta-suave); margin: 0 0 14px; font-size: 14px; }
+  .contadores { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border-radius: 999px;
+          border: 2px solid var(--borde); background: var(--tarjeta); font-weight: 700; font-size: 14px;
+          cursor: pointer; color: var(--tinta); font-family: inherit; }
+  .chip b { font-size: 16px; }
+  .chip[aria-pressed="true"] { border-color: var(--tinta); background: var(--tinta); color: #fff; }
+  .punto { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+  .filtros { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0 18px; }
+  .filtros label { font-weight: 700; font-size: 14px; }
+  select { font: inherit; padding: 7px 10px; border-radius: 10px; border: 2px solid var(--borde);
+           background: var(--tarjeta); color: var(--tinta); }
+
+  .rejilla { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr)); }
+  .caso { min-width: 0; background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 16px; overflow: hidden;
+          display: flex; flex-direction: column; box-shadow: 0 1px 3px #1f2a3d12; }
+  .fotos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: #efe6d2;
+           aspect-ratio: 4 / 3; }
+  .fotos img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; }
+  .sin-foto { display: grid; place-items: center; width: 100%; font-size: 56px; opacity: .55; }
+  .nfotos { position: relative; }
+  .nfotos span { position: absolute; right: 10px; top: -34px; background: #000a; color: #fff;
+                 font-size: 12px; padding: 2px 8px; border-radius: 999px; }
+  .cuerpo { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .estado { align-self: flex-start; color: #fff; font-weight: 800; font-size: 13px; padding: 3px 10px;
+            border-radius: 999px; }
+  .caso h3 { font-size: 22px; }
+  .meta { color: var(--tinta-suave); font-size: 14px; }
+  .desc { margin: 0; }
+  .etiquetas { display: flex; flex-wrap: wrap; gap: 6px; }
+  .etiqueta { font-size: 13px; background: #f1e8d4; border-radius: 8px; padding: 2px 8px; }
+  .contacto { font-size: 14px; background: #fff3d9; border-left: 4px solid var(--dorado);
+              padding: 8px 10px; border-radius: 6px; }
+  .historia { font-size: 14px; border-top: 1px dashed var(--borde); padding-top: 8px; }
+  .historia h4 { margin: 0 0 4px; font-size: 14px; }
+  .historia ul { margin: 0; padding-left: 18px; }
+  .pie-caso { margin-top: auto; display: flex; justify-content: space-between; align-items: center;
+              gap: 8px; padding-top: 6px; }
+  .id { font-size: 12px; color: var(--tinta-suave); }
+  .btn-wa { background: #1f7a4d; color: #fff; padding: 8px 14px; font-size: 14px; }
+  .btn-wa:hover { background: #165d3a; }
+  .vacio { padding: 30px; text-align: center; color: var(--tinta-suave); grid-column: 1 / -1; }
+
+  .como { margin: 40px 0 10px; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .paso { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 14px; padding: 16px; }
+  .paso h3 { font-size: 19px; margin-bottom: 6px; }
+  .paso p { margin: 0; font-size: 15px; }
+
+  footer { margin-top: 40px; background: var(--noche); color: #e9e2d2; font-size: 14px; }
+  footer .envoltura { padding: 24px 16px; display: grid; gap: 8px; }
+  footer strong { color: #fff; }
+  footer a { color: #f0c98a; }
+  .hashtag { font-weight: 800; color: #f0c98a; letter-spacing: .5px; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="assets/banner.jpg" alt="Ilustración de un perrito y un gatito frente a una casita">
+  <div class="portada">
+    <h1>Red de Huellitas 🐾</h1>
+    <p>Los rescates, adopciones y mascotas perdidas de nuestra comunidad de El Condado, en un solo
+       lugar y al día, para que cada una encuentre un hogar o vuelva a casa con su familia.</p>
+    <div class="botones">
+      <a class="btn btn-principal" id="btn-reportar" href="#" target="_blank" rel="noopener">📝 Reportar una mascota</a>
+      <a class="btn btn-claro" id="btn-admin" href="#" target="_blank" rel="noopener">💬 Escribir a la administradora</a>
+    </div>
+  </div>
+</header>
+
+<main class="envoltura">
+  <section class="resumen" aria-labelledby="t-resumen">
+    <h2 id="t-resumen">Mascotas en la red</h2>
+    <p class="sub" id="actualizado">Cargando casos…</p>
+    <div class="contadores" id="contadores" role="group" aria-label="Filtrar por estado"></div>
+  </section>
+
+  <div class="filtros">
+    <label for="f-especie">Ver:</label>
+    <select id="f-especie">
+      <option value="">Todas las mascotas</option>
+      <option value="Perrito">Perritos</option>
+      <option value="Gatito">Gatitos</option>
+      <option value="Otra mascota">Otras mascotas</option>
+    </select>
+  </div>
+
+  <section class="rejilla" id="rejilla" aria-live="polite"></section>
+
+  <section class="como" aria-label="Cómo funciona">
+    <div class="paso">
+      <h3>¿Rescataste o perdiste una mascota?</h3>
+      <p>Llena el formulario en 2 minutos y comparte su foto en el grupo "Mascotas Condado". Su caso
+         aparece aquí cuando la administradora lo revisa.</p>
+    </div>
+    <div class="paso">
+      <h3>¿La viste por ahí?</h3>
+      <p>Usa el mismo formulario y elige "Vi a una mascota que su familia está buscando". Cada pista
+         ayuda a que vuelva a casa.</p>
+    </div>
+    <div class="paso">
+      <h3>¿Quieres adoptar o saber de una mascota?</h3>
+      <p>Toca "Preguntar" en su tarjeta. Tus datos no se publican: la administradora te pone
+         en contacto con quien la cuida.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <div><strong>Página 100 % informativa:</strong> aquí no se pide ni se maneja dinero. Sólo
+      mostramos la zona o privada, nunca direcciones ni datos de quien reporta.</div>
+    <div>Para casos que la comunidad no puede resolver sola: <a href="mailto:adopta@apaqro.org">APAQRO</a>
+      (adopta@apaqro.org).</div>
+    <div><span class="hashtag">#SOYVOLUNTARIOCEFODEH</span> · Proyecto de servicio social de Marcela
+      Cadena, Ingeniería en Ciencia de Datos, UVM, con la comunidad de "Mascotas Condado", Corregidora, Querétaro.</div>
+  </div>
+</footer>
+
+<script>
+// ===== Configuración (lo único que se edita a mano) =====
+const FORM_URL = "https://forms.gle/DUsJKwRDwnp5ZUmSA";
+const WHATSAPP_ADMIN = "525551885440";   // 52 + 10 dígitos, sin espacios. Ej.: "524421234567". Vacío = se ocultan los botones.
+// ========================================================
+
+const ESTADOS = [
+  ["Perdida", "var(--perdida)"],
+  ["Buscando familia", "var(--familia)"],
+  ["En recuperación", "var(--recuperacion)"],
+  ["En proceso de adopción", "var(--proceso)"],
+  ["Por confirmar", "var(--confirmar)"],
+  ["Adoptada", "var(--feliz)"],
+  ["Ya volvió a casa", "var(--feliz)"],
+];
+const COLOR = Object.fromEntries(ESTADOS);
+const ORDEN = Object.fromEntries(ESTADOS.map(([e], i) => [e, i]));
+let casos = [], filtroEstado = "", filtroEspecie = "";
+
+function el(tag, props = {}, ...hijos) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (k === "style") n.style.cssText = v; else if (k in n) n[k] = v; else n.setAttribute(k, v);
+  }
+  for (const h of hijos) if (h != null && h !== "") n.append(h);
+  return n;
+}
+const fecha = iso => iso ? iso.split("-").reverse().join("/") : "";
+const enlaceWA = texto => `https://wa.me/${WHATSAPP_ADMIN}?text=${encodeURIComponent(texto)}`;
+
+function titulo(c) {
+  if (c.nombre) return c.nombre;
+  const hembra = c.sexo === "Hembra";
+  const base = { "Perrito": hembra ? "Perrita" : "Perrito", "Gatito": hembra ? "Gatita" : "Gatito" }[c.especie] || "Mascota";
+  return `${base} sin nombre`;
+}
+function textoFecha(c) {
+  if (!c.fecha) return "";
+  const o = c.sexo === "Macho" ? "o" : "a";
+  const t = { evento: c.tipo_reporte === "perdida" ? "Se perdió el" : `Rescatad${o} el`,
+              compartido: "Compartida en el grupo el", reporte: "Reportada el" }[c.fecha_tipo] || "";
+  return `${t} ${fecha(c.fecha)}`;
+}
+
+function tarjeta(c) {
+  const fotos = el("div", { className: "fotos" });
+  if (c.fotos.length) {
+    c.fotos.forEach((src, i) => fotos.append(el("img", { src, loading: "lazy",
+      alt: `Foto ${i + 1} de ${titulo(c)}` })));
+  } else {
+    fotos.append(el("div", { className: "sin-foto", "aria-hidden": "true" }, c.especie === "Gatito" ? "🐱" : "🐶"));
+  }
+  const cont = el("div", { className: "nfotos" });
+  if (c.fotos.length > 1) cont.append(el("span", {}, `◀ ${c.fotos.length} fotos ▶`));
+
+  const etiquetas = el("div", { className: "etiquetas" });
+  [c.especie, c.sexo !== "No sé" ? c.sexo : "", c.edad, ...c.salud.filter(s => s !== "No sé"),
+   c.ubicacion && c.ubicacion !== "No sé" ? `📍 ${c.ubicacion}` : "",
+   c.canalizado_apaqro === "Sí" ? "Canalizada a APAQRO" : ""]
+    .filter(Boolean).forEach(t => etiquetas.append(el("span", { className: "etiqueta" }, t)));
+
+  const cuerpo = el("div", { className: "cuerpo" },
+    el("span", { className: "estado", style: `background:${COLOR[c.estado] || "var(--confirmar)"}` }, c.estado),
+    el("h3", {}, titulo(c)),
+    el("div", { className: "meta" }, `${c.zona || "Zona por confirmar"}${c.fecha ? " · " + textoFecha(c) : ""}`),
+    c.descripcion ? el("p", { className: "desc" }, c.descripcion) : null,
+    etiquetas.childElementCount ? etiquetas : null,
+    c.contacto_cuidador ? el("div", { className: "contacto" },
+      "Contacto: ", c.contacto_cuidador) : null,
+  );
+
+  if (c.avistamientos.length) {
+    const ul = el("ul");
+    c.avistamientos.forEach(a => ul.append(el("li", {},
+      `${fecha(a.fecha)}${a.zona ? " en " + a.zona : ""}${a.comentario ? ": " + a.comentario : ""}`)));
+    cuerpo.append(el("div", { className: "historia" }, el("h4", {}, "👀 La vieron por aquí"), ul));
+  }
+  if (c.novedades.length) {
+    const ul = el("ul");
+    c.novedades.forEach(n => ul.append(el("li", {},
+      `${fecha(n.fecha)}${n.estado ? " · " + n.estado : ""}${n.comentario ? ": " + n.comentario : ""}`)));
+    cuerpo.append(el("div", { className: "historia" }, el("h4", {}, "📌 Novedades"), ul));
+  }
+  if (c.fecha_cierre) {
+    cuerpo.append(el("div", { className: "meta" }, `💛 Final feliz el ${fecha(c.fecha_cierre)}`));
+  }
+
+  const pie = el("div", { className: "pie-caso" }, el("span", { className: "id" }, `Caso ${c.id_caso}`));
+  if (WHATSAPP_ADMIN) {
+    pie.append(el("a", { className: "btn btn-wa", target: "_blank", rel: "noopener",
+      href: enlaceWA(`Hola, te escribo por ${titulo(c)} (caso ${c.id_caso}) de Red de Huellitas.`) },
+      c.sexo === "Macho" ? "💬 Preguntar por él" : "💬 Preguntar por ella"));
+  }
+  cuerpo.append(pie);
+  return el("article", { className: "caso" }, fotos, cont, cuerpo);
+}
+
+function pintar() {
+  const visibles = casos.filter(c => (!filtroEstado || c.estado === filtroEstado) &&
+                                     (!filtroEspecie || c.especie === filtroEspecie));
+  const rejilla = document.getElementById("rejilla");
+  rejilla.replaceChildren(...visibles.map(tarjeta));
+  if (!visibles.length) rejilla.append(el("p", { className: "vacio" }, "No hay mascotas con ese filtro por ahora."));
+
+  const conteo = {};
+  casos.forEach(c => conteo[c.estado] = (conteo[c.estado] || 0) + 1);
+  const chips = [el("button", { className: "chip", type: "button", "aria-pressed": String(!filtroEstado),
+    onclick: () => { filtroEstado = ""; pintar(); } }, "Todas ", el("b", {}, String(casos.length)))];
+  ESTADOS.forEach(([e, color]) => {
+    if (!conteo[e]) return;
+    chips.push(el("button", { className: "chip", type: "button", "aria-pressed": String(filtroEstado === e),
+      onclick: () => { filtroEstado = filtroEstado === e ? "" : e; pintar(); } },
+      el("span", { className: "punto", style: `background:${color}` }), `${e} `, el("b", {}, String(conteo[e]))));
+  });
+  document.getElementById("contadores").replaceChildren(...chips);
+}
+
+document.getElementById("btn-reportar").href = FORM_URL;
+const admin = document.getElementById("btn-admin");
+if (WHATSAPP_ADMIN) admin.href = enlaceWA("Hola, te escribo por Red de Huellitas.");
+else admin.remove();
+document.getElementById("f-especie").addEventListener("change", e => { filtroEspecie = e.target.value; pintar(); });
+
+fetch("casos.json", { cache: "no-cache" })
+  .then(r => r.json())
+  .then(d => {
+    casos = d.casos.sort((a, b) => (ORDEN[a.estado] ?? 9) - (ORDEN[b.estado] ?? 9) ||
+                                   (b.fecha || "").localeCompare(a.fecha || ""));
+    const [dia, hora] = d.actualizado.split("T");
+    document.getElementById("actualizado").textContent =
+      `${casos.length} mascotas registradas · Actualizado el ${fecha(dia)} a las ${hora}`;
+    pintar();
+  })
+  .catch(() => {
+    document.getElementById("actualizado").textContent = "No pudimos cargar los casos. Intenta recargar la página.";
+  });
+</script>
+
+<!-- GoatCounter: visitas sin cookies. panel en https://red-de-huellitas.goatcounter.com -->
+<script data-goatcounter="https://red-de-huellitas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
