@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-03T21:52",
+ "actualizado": "2026-11-04T11:01",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -57,16 +57,17 @@
    "tipo_reporte": "rescate",
    "especie": "Perrito",
    "nombre": "Arka",
-   "descripcion": "Cachorrita de pelo corto negro con café, con una franja blanca en la carita y el pecho blanco; orejitas caídas. Es tímida, cariñosa y le gusta pasear. Busca una familia para amar.",
+   "descripcion": "Cachorrita de pelo corto negro con café, con una franja blanca en la carita, el pecho blanco, orejitas caídas y un ojito azul. Será de tamaño mediano a grande. Ya tiene collar con placa. Es tímida, cariñosa y le gusta pasear. Busca una familia para amar.",
    "sexo": "Hembra",
    "edad": "5 meses",
    "salud": [
     "Vacunada",
-    "Desparasitada"
+    "Desparasitada",
+    "Esterilizada"
    ],
    "zona": "",
    "estado": "Buscando familia",
-   "ubicacion": "",
+   "ubicacion": "Con quien la rescató",
    "canalizado_apaqro": "",
    "fecha_reporte": "2026-11-03",
    "fecha_cierre": "",
@@ -330,6 +331,34 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-08-27",
+   "fecha_tipo": "evento"
+  },
+  {
+   "id_caso": "2026-11-014",
+   "tipo_reporte": "perdida",
+   "especie": "Perrito",
+   "nombre": "Vaquero",
+   "descripcion": "Chihuahua blanco con negro. Es muy aprensivo, pero no es agresivo. En el cojinete de su patita derecha tiene un corazón ♥️",
+   "sexo": "Macho",
+   "edad": "6 años",
+   "salud": [
+    "Vacunada",
+    "Desparasitada"
+   ],
+   "zona": "Colonia Colinas del Sur",
+   "estado": "Perdida",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-04",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-014/foto-1.jpg",
+    "casos/2026-11-014/foto-2.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2024-12-12",
    "fecha_tipo": "evento"
   }
  ]

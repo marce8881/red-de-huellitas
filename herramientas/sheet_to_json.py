@@ -34,6 +34,7 @@ FOTOS_WEB = RAIZ / "casos"
 # "¿Cómo está ahora?" aparece dos veces: la 1.ª es P10 (sección 2), la 2.ª es P19 (novedades).
 PREGUNTAS = {
     "marca temporal": "fecha_reporte",
+    "timestamp": "fecha_reporte",  # la Sheet real está en inglés
     "¿qué quieres reportar?": "tipo",
     "¿es perrito, gatito u otra mascota?": "especie",
     "¿cómo se llama? (si tiene nombre)": "nombre",
@@ -43,6 +44,7 @@ PREGUNTAS = {
     "¿cómo está de salud?": "salud",
     "¿cuándo fue rescatada o cuándo se perdió? (si lo sabes)": "fecha_evento",
     "¿en qué zona o privada está o se perdió? (si lo sabes)": "zona",
+    "¿en qué zona o privada la encontraron o se perdió? (si lo sabes)": "zona",  # texto real del Form
     "¿cómo está ahora? (novedades)": "estado_novedad",
     "¿dónde está ahora?": "ubicacion",
     "¿quién la cuida ahora?": "contacto_cuidador",
@@ -79,7 +81,10 @@ TELEFONO = re.compile(r"(?:\+?52[\s-]*)?(?:\d[\s-]*){10}")
 
 
 def norm(s):
-    return unicodedata.normalize("NFC", (s or "").strip()).lower()
+    # Quita caracteres invisibles (p. ej. \u200b, que se cuela al copiar las preguntas al Form),
+    # espacios y el punto final de los encabezados: "¿...? (si lo sabes)." == "¿...? (si lo sabes)".
+    s = "".join(ch for ch in (s or "") if unicodedata.category(ch) != "Cf")
+    return unicodedata.normalize("NFC", s.strip().rstrip(".").strip()).lower()
 
 
 def si(valor):
