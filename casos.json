@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-03T20:50",
+ "actualizado": "2026-11-03T21:23",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -230,6 +230,34 @@
    ],
    "novedades": [],
    "fecha": "2026-09-20",
+   "fecha_tipo": "compartido"
+  },
+  {
+   "id_caso": "2026-11-010",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "Milly",
+   "descripcion": "Perrita de tamaño grande, cruza de pastor, de pelo color canela con hocico oscuro y pechito blanco. Es cariñosa, juguetona y muy agradecida, y no hace sus necesidades dentro de casa. Tiene mucha energía: necesita espacio y alguien que la saque a pasear 3 o 4 veces al día para que corra y juegue. La encontraron en la carretera a Celaya. Jazmín la cuida como casa puente y la está entrenando para que esté lista para su nueva familia, una que la ame y le dé todo el amor que ella puede dar.",
+   "sexo": "Hembra",
+   "edad": "2 años aprox.",
+   "salud": [
+    "Vacunada",
+    "Esterilizada"
+   ],
+   "zona": "El Condado",
+   "estado": "Buscando familia",
+   "ubicacion": "Con quien la rescató",
+   "canalizado_apaqro": "No sé",
+   "fecha_reporte": "2026-11-03",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Jazmín: 6563141457",
+   "fotos": [
+    "casos/2026-11-010/foto-1.jpg",
+    "casos/2026-11-010/foto-2.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-08-27",
    "fecha_tipo": "compartido"
   }
  ]
