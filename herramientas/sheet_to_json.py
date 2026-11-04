@@ -68,6 +68,7 @@ PRIVADAS = {"compartido_por", "consentimiento_foto", "aprobado", "contacto_publi
 ESTADOS = [  # (prefijo de la opción del Form, etiqueta en la página)
     ("perdida", "Perdida"),
     ("en recuperación", "En recuperación"),
+    ("en seguimiento", "En seguimiento"),
     ("buscando familia", "Buscando familia"),
     ("en proceso de adopción", "En proceso de adopción"),
     ("adoptada", "Adoptada"),
