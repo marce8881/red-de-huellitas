@@ -205,12 +205,24 @@ function titulo(c) {
   const base = { "Perrito": hembra ? "Perrita" : "Perrito", "Gatito": hembra ? "Gatita" : "Gatito" }[c.especie] || "Mascota";
   return `${base} sin nombre`;
 }
+// Concordancia: "o" si es macho, "a" si es hembra. Si el sexo no viene, se deduce del
+// nombre (termina en -o → él, en -a → ella); si tampoco se puede, null (texto neutro).
+// Solo afecta la redacción: la etiqueta de sexo de la ficha sigue mostrando el dato real.
+function genero(c) {
+  if (c.sexo === "Macho") return "o";
+  if (c.sexo === "Hembra") return "a";
+  const fin = (c.nombre || "").trim().toLowerCase().normalize("NFD").replace(/[^a-z]/g, "").slice(-1);
+  return fin === "o" ? "o" : fin === "a" ? "a" : null;
+}
 function textoFecha(c) {
   if (!c.fecha) return "";
-  const o = c.sexo === "Macho" ? "o" : "a";
-  const t = { evento: c.tipo_reporte === "perdida" ? "Se perdió el" : `Rescatad${o} el`,
-              compartido: "Compartida en el grupo el", reporte: "Reportada el" }[c.fecha_tipo] || "";
-  return `${t} ${fecha(c.fecha)}`;
+  const o = genero(c);
+  const t = o
+    ? { evento: c.tipo_reporte === "perdida" ? "Se perdió el" : `Rescatad${o} el`,
+        compartido: `Compartid${o} en el grupo el`, reporte: `Reportad${o} el` }
+    : { evento: c.tipo_reporte === "perdida" ? "Se perdió el" : "Rescate del",
+        compartido: "Publicado en el grupo el", reporte: "Reporte del" };
+  return `${t[c.fecha_tipo] || ""} ${fecha(c.fecha)}`;
 }
 
 function tarjeta(c) {
@@ -244,7 +256,7 @@ function tarjeta(c) {
     const ul = el("ul");
     c.avistamientos.forEach(a => ul.append(el("li", {},
       `${fecha(a.fecha)}${a.zona ? " en " + a.zona : ""}${a.comentario ? ": " + a.comentario : ""}`)));
-    cuerpo.append(el("div", { className: "historia" }, el("h4", {}, "👀 La vieron por aquí"), ul));
+    cuerpo.append(el("div", { className: "historia" }, el("h4", {}, { o: "👀 Lo vieron por aquí", a: "👀 La vieron por aquí" }[genero(c)] || "👀 Se vio por aquí"), ul));
   }
   if (c.novedades.length) {
     const ul = el("ul");
@@ -260,7 +272,8 @@ function tarjeta(c) {
   if (WHATSAPP_ADMIN) {
     pie.append(el("a", { className: "btn btn-wa", target: "_blank", rel: "noopener",
       href: enlaceWA(`Hola, te escribo por ${titulo(c)} (caso ${c.id_caso}) de Red de Huellitas.`) },
-      c.sexo === "Macho" ? "💬 Preguntar por él" : "💬 Preguntar por ella"));
+      { o: "💬 Preguntar por él", a: "💬 Preguntar por ella" }[genero(c)] ||
+        (c.nombre ? `💬 Preguntar por ${c.nombre}` : "💬 Preguntar por esta huellita")));
   }
   cuerpo.append(pie);
   return el("article", { className: "caso" }, fotos, cont, cuerpo);
