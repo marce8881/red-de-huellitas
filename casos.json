@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-04T11:01",
+ "actualizado": "2026-11-04T11:32",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -24,7 +24,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-09-08",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-002",
@@ -50,7 +51,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-10-15",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-003",
@@ -76,9 +78,16 @@
     "casos/2026-11-003/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
+   "novedades": [
+    {
+     "fecha": "2026-11-04",
+     "estado": "Buscando familia",
+     "comentario": "Ya está esterilizada, será de tamaño mediano a grande y ya tiene collar con placa. Quien la rescató la cuida mientras encuentra familia."
+    }
+   ],
    "fecha": "2026-11-03",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-04"
   },
   {
    "id_caso": "2026-11-004",
@@ -103,7 +112,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-10-08",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-005",
@@ -127,7 +137,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-10-04",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-006",
@@ -151,7 +162,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-10-06",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-007",
@@ -175,7 +187,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-10-06",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-008",
@@ -200,7 +213,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-10-02",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-009",
@@ -231,7 +245,8 @@
    ],
    "novedades": [],
    "fecha": "2026-09-20",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-010",
@@ -259,7 +274,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-08-27",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-011",
@@ -271,7 +287,7 @@
    "edad": "",
    "salud": [],
    "zona": "Podría estar en Las Teresas, Kellogs, Campo Militar o Vías de Carrillo",
-   "estado": "Perdida",
+   "estado": "Por confirmar",
    "ubicacion": "",
    "canalizado_apaqro": "",
    "fecha_reporte": "2026-11-03",
@@ -281,9 +297,16 @@
     "casos/2026-11-011/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
+   "novedades": [
+    {
+     "fecha": "2026-11-04",
+     "estado": "Por confirmar",
+     "comentario": "Una vecina comenta que Benito ya fue encontrado. Estamos confirmando con su familia."
+    }
+   ],
    "fecha": "2026-09-06",
-   "fecha_tipo": "compartido"
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-04"
   },
   {
    "id_caso": "2026-11-012",
@@ -307,7 +330,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-08-31",
-   "fecha_tipo": "evento"
+   "fecha_tipo": "evento",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-013",
@@ -331,7 +355,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2026-08-27",
-   "fecha_tipo": "evento"
+   "fecha_tipo": "evento",
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-014",
@@ -359,7 +384,8 @@
    "avistamientos": [],
    "novedades": [],
    "fecha": "2024-12-12",
-   "fecha_tipo": "evento"
+   "fecha_tipo": "evento",
+   "actualizado": "2026-11-04"
   }
  ]
 }

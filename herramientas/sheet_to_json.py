@@ -75,6 +75,7 @@ ESTADOS = [  # (prefijo de la opción del Form, etiqueta en la página)
     ("en proceso de adopción", "En proceso de adopción"),
     ("adoptada", "Adoptada"),
     ("ya volvió a casa", "Ya volvió a casa"),
+    ("por confirmar", "Por confirmar"),  # no está en el Form: sólo la usa Marce al moderar
 ]
 SIN_ESTADO = "Por confirmar"
 TELEFONO = re.compile(r"(?:\+?52[\s-]*)?(?:\d[\s-]*){10}")
@@ -229,6 +230,9 @@ def construir(filas):
         con_estado = [n for n in c["novedades"] if n["estado"]]
         if con_estado:
             c["estado"] = con_estado[-1]["estado"]
+        # Última vez que cambió su información: el reporte, una novedad o un avistamiento.
+        fechas = [c["fecha_reporte"]] + [x["fecha"] for x in c["novedades"] + c["avistamientos"]]
+        c["actualizado"] = max((f for f in fechas if f), default="")
     return casos, avisos
 
 
@@ -302,7 +306,7 @@ def main():
     conteo = {}
     for c in publicos:
         conteo[c["estado"]] = conteo.get(c["estado"], 0) + 1
-    for etiqueta in [e for _, e in ESTADOS] + [SIN_ESTADO]:
+    for etiqueta in dict.fromkeys([e for _, e in ESTADOS] + [SIN_ESTADO]):
         if etiqueta in conteo:
             print(f"  {etiqueta}: {conteo[etiqueta]}")
     print(f"  con foto: {sum(1 for c in publicos if c['fotos'])}")

@@ -246,6 +246,7 @@ function tarjeta(c) {
     el("span", { className: "estado", style: `background:${COLOR[c.estado] || "var(--confirmar)"}` }, c.estado),
     el("h3", {}, titulo(c)),
     el("div", { className: "meta" }, `${c.zona || "Zona por confirmar"}${c.fecha ? " · " + textoFecha(c) : ""}`),
+    c.actualizado ? el("div", { className: "meta" }, `🔄 Actualizado el ${fecha(c.actualizado)}`) : null,
     c.descripcion ? el("p", { className: "desc" }, c.descripcion) : null,
     etiquetas.childElementCount ? etiquetas : null,
     c.contacto_cuidador ? el("div", { className: "contacto" },
