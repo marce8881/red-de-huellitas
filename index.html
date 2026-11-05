@@ -84,6 +84,7 @@
   .id { font-size: 12px; color: var(--tinta-suave); }
   .btn-wa { background: #1f7a4d; color: #fff; padding: 8px 14px; font-size: 14px; }
   .btn-wa:hover { background: #165d3a; }
+  .alt-form { font-size: 13px; text-align: right; }
   .vacio { padding: 30px; text-align: center; color: var(--tinta-suave); grid-column: 1 / -1; }
 
   .como { margin: 40px 0 10px; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
@@ -151,7 +152,7 @@
     </div>
     <div class="paso">
       <h3>¿Quieres adoptar o saber de una mascota?</h3>
-      <p>Toca "Preguntar" en su tarjeta. Tus datos no se publican: la administradora te pone
+      <p>Toca el botón verde de su tarjeta. Tus datos no se publican: la administradora te pone
          en contacto con quien la cuida.</p>
     </div>
   </section>
@@ -224,6 +225,35 @@ function textoFecha(c) {
         compartido: "Publicado en el grupo el", reporte: "Reporte del" };
   return `${t[c.fecha_tipo] || ""} ${fecha(c.fecha)}`;
 }
+// Botón de WhatsApp según la situación del caso: { boton, mensaje } o null (final feliz).
+function accion(c) {
+  const o = genero(c), elle = { o: "él", a: "ella" }[o];
+  // ref("a") → "a Milly" / "a la perrita sin nombre" / "al perrito sin nombre"; "de" → "del"; "por" → "por el".
+  const t = titulo(c), masc = /^(Perrito|Gatito) /.test(t);
+  const art = prep => masc ? ({ a: "al", de: "del" }[prep] || prep + " el") : prep + " la";
+  const ref = prep => `${c.nombre ? prep + " " + c.nombre : art(prep) + " " + t.toLowerCase()} (caso ${c.id_caso}) de Red de Huellitas`;
+  const caso = ref("a");
+  const preguntar = { boton: elle ? `💬 Preguntar por ${elle}` : (c.nombre ? `💬 Preguntar por ${c.nombre}` : "💬 Preguntar por esta huellita"),
+                      mensaje: `Hola, te escribo ${ref("por")}.` };
+  switch (c.estado) {
+    case "Perdida":
+      return { boton: o === "o" ? "👀 Lo vi" : o === "a" ? "👀 La vi" : "👀 La vi por aquí",
+               mensaje: `Hola, creo que vi ${caso}. ${o === "o" ? "Lo" : "La"} vi en: ___ el día: ___` };
+    case "Buscando familia":
+      return { boton: o === "o" ? "🏡 Quiero adoptarlo" : o === "a" ? "🏡 Quiero adoptarla" : "🏡 Quiero adoptar",
+               mensaje: `Hola, me interesa adoptar ${caso}. ¿Me cuentas más de ${elle || "esta huellita"}?` };
+    case "Por confirmar":
+      return c.tipo_reporte === "rescate"
+        ? { boton: "🏠 Sé de quién es", mensaje: `Hola, creo que sé quién es la familia ${ref("de")}.` }
+        : { boton: elle ? `📣 Tengo noticias de ${elle}` : "📣 Tengo noticias",
+            mensaje: `Hola, tengo noticias ${ref("de")}: ___` };
+    case "Adoptada":
+    case "Ya volvió a casa":
+      return null;
+    default:
+      return preguntar;
+  }
+}
 
 function tarjeta(c) {
   const fotos = el("div", { className: "fotos" });
@@ -270,13 +300,16 @@ function tarjeta(c) {
   }
 
   const pie = el("div", { className: "pie-caso" }, el("span", { className: "id" }, `Caso ${c.id_caso}`));
-  if (WHATSAPP_ADMIN) {
+  const acc = WHATSAPP_ADMIN ? accion(c) : null;
+  if (acc) {
     pie.append(el("a", { className: "btn btn-wa", target: "_blank", rel: "noopener",
-      href: enlaceWA(`Hola, te escribo por ${titulo(c)} (caso ${c.id_caso}) de Red de Huellitas.`) },
-      { o: "💬 Preguntar por él", a: "💬 Preguntar por ella" }[genero(c)] ||
-        (c.nombre ? `💬 Preguntar por ${c.nombre}` : "💬 Preguntar por esta huellita")));
+      href: enlaceWA(acc.mensaje) }, acc.boton));
   }
   cuerpo.append(pie);
+  if (c.estado === "Perdida") {
+    cuerpo.append(el("div", { className: "meta alt-form" }, "¿Prefieres no escribir por WhatsApp? ",
+      el("a", { href: FORM_URL, target: "_blank", rel: "noopener" }, "Avisa por el formulario")));
+  }
   return el("article", { className: "caso" }, fotos, cont, cuerpo);
 }
 
