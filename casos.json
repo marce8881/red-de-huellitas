@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-04T11:32",
+ "actualizado": "2026-11-04T23:08",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -253,17 +253,18 @@
    "tipo_reporte": "rescate",
    "especie": "Perrito",
    "nombre": "Milly",
-   "descripcion": "Perrita de tamaño grande, cruza de pastor, de pelo color canela con hocico oscuro y pechito blanco. Es cariñosa, juguetona y muy agradecida, y no hace sus necesidades dentro de casa. Tiene mucha energía: necesita espacio y alguien que la saque a pasear 3 o 4 veces al día para que corra y juegue. La encontraron en la carretera a Celaya. Jazmín la cuida como casa puente y la está entrenando para que esté lista para su nueva familia, una que la ame y le dé todo el amor que ella puede dar.",
+   "descripcion": "Perrita de tamaño grande, cruza de pastor, de pelo color canela con hocico oscuro y pechito blanco. Es súper amorosa, apegada a su gente y protectora; también es juguetona y muy agradecida, y no hace sus necesidades dentro de casa. Tiene mucha energía: necesita espacio y alguien que la saque a pasear 3 o 4 veces al día para que corra y juegue. Le encanta escarbar, así que le va mejor un patio seguro y sus paseos diarios. Estuvo un mes en adopción y regresó; hoy Jazmín la cuida como casa puente y la está entrenando para que esté lista para su nueva familia, una que la ame y le dé todo el amor que ella puede dar. La encontraron en la carretera a Celaya, a la altura de Los Ángeles.",
    "sexo": "Hembra",
    "edad": "2 años aprox.",
    "salud": [
     "Vacunada",
+    "Desparasitada",
     "Esterilizada"
    ],
-   "zona": "El Condado",
+   "zona": "Carretera a Celaya a la altura de Los Ángeles",
    "estado": "Buscando familia",
    "ubicacion": "Con quien la rescató",
-   "canalizado_apaqro": "No sé",
+   "canalizado_apaqro": "No",
    "fecha_reporte": "2026-11-03",
    "fecha_cierre": "",
    "contacto_cuidador": "Jazmín: 6563141457",
@@ -272,10 +273,16 @@
     "casos/2026-11-010/foto-2.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
-   "fecha": "2026-08-27",
-   "fecha_tipo": "compartido",
-   "actualizado": "2026-11-03"
+   "novedades": [
+    {
+     "fecha": "2026-11-04",
+     "estado": "Buscando familia",
+     "comentario": "Jazmín actualizó su ficha: ya está desparasitada y sigue en entrenamiento, lista para encontrar a su familia."
+    }
+   ],
+   "fecha": "2026-08-15",
+   "fecha_tipo": "evento",
+   "actualizado": "2026-11-04"
   },
   {
    "id_caso": "2026-11-011",
