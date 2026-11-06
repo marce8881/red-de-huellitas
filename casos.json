@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06T12:56",
+ "actualizado": "2026-11-06T13:17",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -243,10 +243,16 @@
      "comentario": "Andaba mojada por la lluvia en el estacionamiento, junto con otro perrito café con blanco."
     }
    ],
-   "novedades": [],
+   "novedades": [
+    {
+     "fecha": "2026-11-06",
+     "estado": "",
+     "comentario": "El perrito café con blanco que la acompaña en el estacionamiento ya tiene su ficha: es el caso 2026-11-016."
+    }
+   ],
    "fecha": "2026-09-20",
    "fecha_tipo": "compartido",
-   "actualizado": "2026-11-03"
+   "actualizado": "2026-11-06"
   },
   {
    "id_caso": "2026-11-010",
@@ -427,12 +433,12 @@
    "tipo_reporte": "rescate",
    "especie": "Perrito",
    "nombre": "",
-   "descripcion": "Perrito tipo pointer de tamaño mediano, blanco con manchas café oscuro (color \"hígado\") y orejitas café. Es muy manso y parece cansado; no sabemos cuánto ha caminado. Se le vio echado en un cajón del estacionamiento. Urge encontrar a su familia.",
+   "descripcion": "Perrito tipo pointer de tamaño mediano, blanco con manchas café oscuro (color \"hígado\") y orejitas café. Es muy manso y parece cansado. Anda en el estacionamiento del Chedraui junto con la perrita color miel del caso 2026-11-009; el 05/11 lo vieron echado en un cajón del estacionamiento. Urge encontrar a su familia.",
    "sexo": "Macho",
    "edad": "",
    "salud": [],
    "zona": "Estacionamiento del Chedraui, Plaza Paseo Querétaro",
-   "estado": "Por confirmar",
+   "estado": "En seguimiento",
    "ubicacion": "En la calle",
    "canalizado_apaqro": "",
    "fecha_reporte": "2026-11-06",
@@ -441,10 +447,22 @@
    "fotos": [
     "casos/2026-11-016/foto-1.jpg"
    ],
-   "avistamientos": [],
-   "novedades": [],
-   "fecha": "2026-11-05",
-   "fecha_tipo": "evento",
+   "avistamientos": [
+    {
+     "fecha": "2026-10-10",
+     "zona": "Estacionamiento del Chedraui",
+     "comentario": "Andaba bajo la lluvia junto con la perrita color miel (caso 2026-11-009)."
+    }
+   ],
+   "novedades": [
+    {
+     "fecha": "2026-11-06",
+     "estado": "En seguimiento",
+     "comentario": "Es el perrito café con blanco que acompaña a la perrita color miel del caso 2026-11-009 en el estacionamiento del Chedraui. Las vecinas les dan seguimiento a los dos."
+    }
+   ],
+   "fecha": "2026-11-06",
+   "fecha_tipo": "compartido",
    "actualizado": "2026-11-06"
   }
  ]

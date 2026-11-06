@@ -18,6 +18,7 @@
     --dorado: #b8823a; --dorado-osc: #8f6221; --noche: #010611; --borde: #e6dcc6;
     --perdida: #b4442e; --familia: #8f6221; --recuperacion: #5f7a32; --proceso: #2f5d8a;
     --feliz: #2e7d4f; --confirmar: #6f6a60; --seguimiento: #7a5a8c;
+    --calle: #c4501a;
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--papel); color: var(--tinta);
@@ -67,8 +68,14 @@
   .nfotos span { position: absolute; right: 10px; top: -34px; background: #000a; color: #fff;
                  font-size: 12px; padding: 2px 8px; border-radius: 999px; }
   .cuerpo { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .insignias { display: flex; flex-wrap: wrap; gap: 6px; }
   .estado { align-self: flex-start; color: #fff; font-weight: 800; font-size: 13px; padding: 3px 10px;
             border-radius: 999px; }
+  .lugar { font-weight: 800; font-size: 13px; padding: 1px 9px; border-radius: 999px; border: 2px solid; }
+  .lugar.calle { color: var(--calle); border-color: var(--calle); background: #fdebe1; }
+  .caso.en-calle { border: 2px solid var(--calle); box-shadow: 0 2px 10px #c4501a33; }
+  .aviso-calle { font-size: 14px; background: #fdebe1; border-left: 4px solid var(--calle);
+                 padding: 8px 10px; border-radius: 6px; }
   .caso h3 { font-size: 22px; }
   .meta { color: var(--tinta-suave); font-size: 14px; }
   .desc { margin: 0; }
@@ -140,6 +147,11 @@
       <option value="Gatito">Gatitos</option>
       <option value="Otra mascota">Otras mascotas</option>
     </select>
+    <label for="f-lugar">Dónde está:</label>
+    <select id="f-lugar">
+      <option value="">En cualquier lugar</option>
+      <option value="calle">🚨 En la calle</option>
+    </select>
   </div>
 
   <section class="rejilla" id="rejilla" aria-live="polite"></section>
@@ -200,7 +212,7 @@ const ESTADOS = [
 ];
 const COLOR = Object.fromEntries(ESTADOS);
 const ORDEN = Object.fromEntries(ESTADOS.map(([e], i) => [e, i]));
-let casos = [], filtroEstado = "", filtroEspecie = "";
+let casos = [], filtroEstado = "", filtroEspecie = "", filtroLugar = "";
 
 function el(tag, props = {}, ...hijos) {
   const n = document.createElement(tag);
@@ -227,6 +239,12 @@ function genero(c) {
   if (c.sexo === "Hembra") return "a";
   const fin = (c.nombre || "").trim().toLowerCase().normalize("NFD").replace(/[^a-z]/g, "").slice(-1);
   return fin === "o" ? "o" : fin === "a" ? "a" : null;
+}
+// "calle" si sigue en la calle (urge resguardarla); "" en cualquier otro caso. Las resguardadas
+// ya muestran dónde están con su etiqueta 📍.
+function lugar(c) {
+  if (c.estado === "Adoptada" || c.estado === "Ya volvió a casa") return "";
+  return (c.ubicacion || "").trim().toLowerCase() === "en la calle" ? "calle" : "";
 }
 function textoFecha(c) {
   if (!c.fecha) return "";
@@ -295,17 +313,21 @@ function tarjeta(c) {
 
   const etiquetas = el("div", { className: "etiquetas" });
   [c.especie, c.sexo !== "No sé" ? c.sexo : "", c.edad, ...c.salud.filter(s => s !== "No sé"),
-   c.ubicacion && c.ubicacion !== "No sé" ? `📍 ${c.ubicacion}` : "",
+   c.ubicacion && c.ubicacion !== "No sé" && lugar(c) !== "calle" ? `📍 ${c.ubicacion}` : "",
    c.canalizado_apaqro === "Sí" ? "Canalizada a APAQRO" : ""]
     .filter(Boolean).forEach(t => etiquetas.append(el("span", { className: "etiqueta" }, t)));
 
   const cuerpo = el("div", { className: "cuerpo" },
-    el("span", { className: "estado", style: `background:${COLOR[c.estado] || "var(--confirmar)"}` }, c.estado),
+    el("div", { className: "insignias" },
+      el("span", { className: "estado", style: `background:${COLOR[c.estado] || "var(--confirmar)"}` }, c.estado),
+      lugar(c) === "calle" ? el("span", { className: "lugar calle" }, "🚨 En la calle") : null),
     el("h3", {}, titulo(c)),
     el("div", { className: "meta" }, `${c.zona || "Zona por confirmar"}${c.fecha ? " · " + textoFecha(c) : ""}`),
     c.actualizado ? el("div", { className: "meta" }, `🔄 Actualizado el ${fecha(c.actualizado)}`) : null,
     ...descripcion(c),
     etiquetas.childElementCount ? etiquetas : null,
+    lugar(c) === "calle" ? el("div", { className: "aviso-calle" },
+      `Sigue en la calle. Si puedes darle un hogar temporal mientras ${{ o: "lo", a: "la" }[genero(c)] || "la"} ubicamos, escríbenos.`) : null,
     c.contacto_cuidador ? el("div", { className: "contacto" },
       "Contacto: ", c.contacto_cuidador) : null,
   );
@@ -337,7 +359,7 @@ function tarjeta(c) {
     cuerpo.append(el("div", { className: "meta alt-form" }, "¿Prefieres no escribir por WhatsApp? ",
       el("a", { href: FORM_URL, target: "_blank", rel: "noopener" }, "Avisa por el formulario")));
   }
-  return el("article", { className: "caso" }, fotos, cont, cuerpo);
+  return el("article", { className: lugar(c) === "calle" ? "caso en-calle" : "caso" }, fotos, cont, cuerpo);
 }
 
 function ajustarVerMas() {
@@ -351,7 +373,8 @@ addEventListener("resize", ajustarVerMas);
 
 function pintar() {
   const visibles = casos.filter(c => (!filtroEstado || c.estado === filtroEstado) &&
-                                     (!filtroEspecie || c.especie === filtroEspecie));
+                                     (!filtroEspecie || c.especie === filtroEspecie) &&
+                                     (!filtroLugar || lugar(c) === filtroLugar));
   const rejilla = document.getElementById("rejilla");
   rejilla.replaceChildren(...visibles.map(tarjeta));
   if (!visibles.length) rejilla.append(el("p", { className: "vacio" }, "No hay mascotas con ese filtro por ahora."));
@@ -378,13 +401,16 @@ const arriba = document.getElementById("arriba");
 arriba.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 addEventListener("scroll", () => arriba.classList.toggle("visible", scrollY > 600), { passive: true });
 document.getElementById("f-especie").addEventListener("change", e => { filtroEspecie = e.target.value; pintar(); });
+document.getElementById("f-lugar").addEventListener("change", e => { filtroLugar = e.target.value; pintar(); });
 
 fetch("casos.json", { cache: "no-cache" })
   .then(r => r.json())
   .then(d => {
-    // Primero las que tienen novedades más recientes; los finales felices van al final.
+    // Después, las que tienen novedades más recientes; los finales felices van al final.
     const cerrado = c => c.estado === "Adoptada" || c.estado === "Ya volvió a casa" ? 1 : 0;
-    casos = d.casos.sort((a, b) => cerrado(a) - cerrado(b) ||
+    // Las que siguen en la calle van hasta arriba: son las más urgentes.
+    const calle = c => lugar(c) === "calle" ? 0 : 1;
+    casos = d.casos.sort((a, b) => cerrado(a) - cerrado(b) || calle(a) - calle(b) ||
                                    (b.actualizado || "").localeCompare(a.actualizado || "") ||
                                    (b.fecha || "").localeCompare(a.fecha || "") ||
                                    (ORDEN[a.estado] ?? 9) - (ORDEN[b.estado] ?? 9));
