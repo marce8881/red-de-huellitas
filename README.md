@@ -58,7 +58,10 @@ respaldo de la Mac (Time Machine o iCloud); si se pierde la carga, se pierde la 
 cambia su estado) y se pone la fecha en `fecha_cierre`. La tarjeta se queda como final feliz.
 
 **Fotos:** sólo de la mascota, sin capturas del chat, sin teléfonos de vecinas y sin direcciones.
-Pesan unos 150 KB y se guardan como `<id_caso>/foto-1.jpg`, `foto-2.jpg`. Si un caso no tiene
+Se recortan a **4:3** (la tarjeta las muestra cubriendo todo el recuadro) eligiendo el encuadre
+para que la mascota se vea bien: primero la carita y el cuerpo, aunque se pierda una patita o la
+cola. Pesan unos 150 KB y se guardan en `privado/fotos/<id_caso>/foto-1.jpg`, `foto-2.jpg`;
+`publicar` las copia a `casos/`. Si un caso no tiene
 permiso de foto, el script la quita de la página.
 
 **Si se cuela un dato privado** (el teléfono de una vecina, una dirección exacta):
