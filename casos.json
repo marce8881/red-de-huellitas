@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06T13:26",
+ "actualizado": "2026-11-06T17:10",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -417,6 +417,30 @@
    ],
    "fecha": "2026-11-06",
    "fecha_tipo": "compartido",
+   "actualizado": "2026-11-06"
+  },
+  {
+   "id_caso": "2026-11-017",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Chihuahua macho de pelo corto color crema o beige claro, orejas grandes y paradas. Traía puesto un suetercito gris oscuro con estampado. Lo encontraron extraviado por la cancha de pádel de El Condado. ¿Es de alguien? Urge encontrar a su familia.",
+   "sexo": "Macho",
+   "edad": "",
+   "salud": [],
+   "zona": "Cancha de pádel, El Condado",
+   "estado": "Por confirmar",
+   "ubicacion": "Con quien la rescató",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-06",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-017/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-06",
+   "fecha_tipo": "evento",
    "actualizado": "2026-11-06"
   }
  ]
