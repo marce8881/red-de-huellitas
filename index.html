@@ -72,6 +72,11 @@
   .caso h3 { font-size: 22px; }
   .meta { color: var(--tinta-suave); font-size: 14px; }
   .desc { margin: 0; }
+  .desc.recortada { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;
+                    line-clamp: 4; overflow: hidden; }
+  .ver-mas { align-self: flex-start; background: none; border: 0; padding: 0; font: inherit;
+             font-size: 14px; font-weight: 800; color: var(--dorado-osc); cursor: pointer;
+             text-decoration: underline; }
   .etiquetas { display: flex; flex-wrap: wrap; gap: 6px; }
   .etiqueta { font-size: 13px; background: #f1e8d4; border-radius: 8px; padding: 2px 8px; }
   .contacto { font-size: 14px; background: #fff3d9; border-left: 4px solid var(--dorado);
@@ -96,6 +101,12 @@
   footer .envoltura { padding: 24px 16px; display: grid; gap: 8px; }
   footer strong { color: #fff; }
   footer a { color: #f0c98a; }
+  .arriba { position: fixed; right: 18px; bottom: 18px; z-index: 10; width: 48px; height: 48px;
+            border-radius: 50%; border: 0; background: var(--tinta); color: #fff; font-size: 22px;
+            cursor: pointer; box-shadow: 0 2px 8px #0005; opacity: 0; pointer-events: none;
+            transform: translateY(10px); transition: opacity .2s, transform .2s; }
+  .arriba.visible { opacity: 1; pointer-events: auto; transform: none; }
+  .arriba:hover { background: var(--dorado-osc); }
   .hashtag { font-weight: 800; color: #f0c98a; letter-spacing: .5px; }
 </style>
 </head>
@@ -157,6 +168,8 @@
     </div>
   </section>
 </main>
+
+<button class="arriba" id="arriba" type="button" aria-label="Volver al inicio" title="Volver al inicio">↑</button>
 
 <footer>
   <div class="envoltura">
@@ -255,6 +268,20 @@ function accion(c) {
   }
 }
 
+// Descripciones largas: se muestran 4 renglones y un botón "Ver más" para desplegar el resto.
+// El botón sólo se queda si el texto de verdad no cabe (se mide al pintar, ver ajustarVerMas).
+function descripcion(c) {
+  if (!c.descripcion) return [];
+  const p = el("p", { className: "desc recortada" }, c.descripcion);
+  const btn = el("button", { className: "ver-mas", type: "button", "aria-expanded": "false" }, "Ver más ▾");
+  btn.onclick = () => {
+    const abierta = p.classList.toggle("recortada") === false;
+    btn.textContent = abierta ? "Ver menos ▴" : "Ver más ▾";
+    btn.setAttribute("aria-expanded", String(abierta));
+  };
+  return [p, btn];
+}
+
 function tarjeta(c) {
   const fotos = el("div", { className: "fotos" });
   if (c.fotos.length) {
@@ -277,7 +304,7 @@ function tarjeta(c) {
     el("h3", {}, titulo(c)),
     el("div", { className: "meta" }, `${c.zona || "Zona por confirmar"}${c.fecha ? " · " + textoFecha(c) : ""}`),
     c.actualizado ? el("div", { className: "meta" }, `🔄 Actualizado el ${fecha(c.actualizado)}`) : null,
-    c.descripcion ? el("p", { className: "desc" }, c.descripcion) : null,
+    ...descripcion(c),
     etiquetas.childElementCount ? etiquetas : null,
     c.contacto_cuidador ? el("div", { className: "contacto" },
       "Contacto: ", c.contacto_cuidador) : null,
@@ -313,12 +340,22 @@ function tarjeta(c) {
   return el("article", { className: "caso" }, fotos, cont, cuerpo);
 }
 
+function ajustarVerMas() {
+  document.querySelectorAll(".ver-mas").forEach(btn => {
+    const p = btn.previousElementSibling;
+    if (btn.getAttribute("aria-expanded") === "true") return;
+    btn.hidden = p.scrollHeight <= p.clientHeight + 1;
+  });
+}
+addEventListener("resize", ajustarVerMas);
+
 function pintar() {
   const visibles = casos.filter(c => (!filtroEstado || c.estado === filtroEstado) &&
                                      (!filtroEspecie || c.especie === filtroEspecie));
   const rejilla = document.getElementById("rejilla");
   rejilla.replaceChildren(...visibles.map(tarjeta));
   if (!visibles.length) rejilla.append(el("p", { className: "vacio" }, "No hay mascotas con ese filtro por ahora."));
+  ajustarVerMas();
 
   const conteo = {};
   casos.forEach(c => conteo[c.estado] = (conteo[c.estado] || 0) + 1);
@@ -337,13 +374,20 @@ document.getElementById("btn-reportar").href = FORM_URL;
 const admin = document.getElementById("btn-admin");
 if (WHATSAPP_ADMIN) admin.href = enlaceWA("Hola, te escribo por Red de Huellitas.");
 else admin.remove();
+const arriba = document.getElementById("arriba");
+arriba.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+addEventListener("scroll", () => arriba.classList.toggle("visible", scrollY > 600), { passive: true });
 document.getElementById("f-especie").addEventListener("change", e => { filtroEspecie = e.target.value; pintar(); });
 
 fetch("casos.json", { cache: "no-cache" })
   .then(r => r.json())
   .then(d => {
-    casos = d.casos.sort((a, b) => (ORDEN[a.estado] ?? 9) - (ORDEN[b.estado] ?? 9) ||
-                                   (b.fecha || "").localeCompare(a.fecha || ""));
+    // Primero las que tienen novedades más recientes; los finales felices van al final.
+    const cerrado = c => c.estado === "Adoptada" || c.estado === "Ya volvió a casa" ? 1 : 0;
+    casos = d.casos.sort((a, b) => cerrado(a) - cerrado(b) ||
+                                   (b.actualizado || "").localeCompare(a.actualizado || "") ||
+                                   (b.fecha || "").localeCompare(a.fecha || "") ||
+                                   (ORDEN[a.estado] ?? 9) - (ORDEN[b.estado] ?? 9));
     const [dia, hora] = d.actualizado.split("T");
     document.getElementById("actualizado").textContent =
       `${casos.length} mascotas registradas · Actualizado el ${fecha(dia)} a las ${hora}`;
