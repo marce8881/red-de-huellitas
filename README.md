@@ -54,6 +54,9 @@ Form) con su moderación (`aprobado`, `id_caso`, `contacto_publico`, `fecha_cier
 **Respaldo:** `privado/` no está en GitHub ni en Drive. Hay que incluir esta carpeta en el
 respaldo de la Mac (Time Machine o iCloud); si se pierde la carga, se pierde la moderación.
 
+**Novedades:** son internas. Cambian el estado del caso y su fecha de "Actualizado el…", pero su
+texto no se publica. Si algo de una novedad debe verse, se agrega a la descripción del caso.
+
 **Cerrar un caso:** cuando una mascota es adoptada o vuelve a casa, se agrega una novedad (o se
 cambia su estado) y se pone la fecha en `fecha_cierre`. La tarjeta se queda como final feliz.
 

@@ -302,6 +302,9 @@ def generar(filas, fotos=None, escribir=True):
     publicos = []
     for c in casos.values():
         c.pop("_foto_ok")
+        # Las novedades son internas: fijan el estado y la fecha de actualización, pero su texto
+        # no se publica (decisión de Marce, 06/11/2026).
+        c.pop("novedades")
         assert not PRIVADAS & set(c), "campo privado en la salida"
         publicos.append(c)
     publicos.sort(key=lambda c: c["id_caso"])

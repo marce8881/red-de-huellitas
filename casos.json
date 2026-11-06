@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06T13:17",
+ "actualizado": "2026-11-06T13:26",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -22,7 +22,6 @@
     "casos/2026-11-001/foto-2.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-09-08",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-03"
@@ -49,7 +48,6 @@
     "casos/2026-11-002/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-10-15",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-03"
@@ -78,13 +76,6 @@
     "casos/2026-11-003/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [
-    {
-     "fecha": "2026-11-04",
-     "estado": "Buscando familia",
-     "comentario": "Ya está esterilizada, será de tamaño mediano a grande y ya tiene collar con placa. Quien la rescató la cuida mientras encuentra familia."
-    }
-   ],
    "fecha": "2026-11-03",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-04"
@@ -110,7 +101,6 @@
     "casos/2026-11-004/foto-2.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-10-08",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-03"
@@ -135,7 +125,6 @@
     "casos/2026-11-005/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-10-04",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-03"
@@ -160,7 +149,6 @@
     "casos/2026-11-006/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-10-06",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-03"
@@ -185,7 +173,6 @@
     "casos/2026-11-007/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-10-06",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-03"
@@ -211,7 +198,6 @@
     "casos/2026-11-008/foto-2.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-10-02",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-03"
@@ -243,13 +229,6 @@
      "comentario": "Andaba mojada por la lluvia en el estacionamiento, junto con otro perrito café con blanco."
     }
    ],
-   "novedades": [
-    {
-     "fecha": "2026-11-06",
-     "estado": "",
-     "comentario": "El perrito café con blanco que la acompaña en el estacionamiento ya tiene su ficha: es el caso 2026-11-016."
-    }
-   ],
    "fecha": "2026-09-20",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-06"
@@ -279,13 +258,6 @@
     "casos/2026-11-010/foto-2.jpg"
    ],
    "avistamientos": [],
-   "novedades": [
-    {
-     "fecha": "2026-11-04",
-     "estado": "Buscando familia",
-     "comentario": "Jazmín actualizó su ficha: ya está desparasitada y sigue en entrenamiento, lista para encontrar a su familia."
-    }
-   ],
    "fecha": "2026-08-15",
    "fecha_tipo": "evento",
    "actualizado": "2026-11-04"
@@ -310,13 +282,6 @@
     "casos/2026-11-011/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [
-    {
-     "fecha": "2026-11-04",
-     "estado": "Por confirmar",
-     "comentario": "Una vecina comenta que Benito ya fue encontrado. Estamos confirmando con su familia."
-    }
-   ],
    "fecha": "2026-09-06",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-04"
@@ -341,7 +306,6 @@
     "casos/2026-11-012/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-08-31",
    "fecha_tipo": "evento",
    "actualizado": "2026-11-03"
@@ -366,7 +330,6 @@
     "casos/2026-11-013/foto-1.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-08-27",
    "fecha_tipo": "evento",
    "actualizado": "2026-11-03"
@@ -395,7 +358,6 @@
     "casos/2026-11-014/foto-2.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2024-12-12",
    "fecha_tipo": "evento",
    "actualizado": "2026-11-04"
@@ -423,7 +385,6 @@
     "casos/2026-11-015/foto-2.jpg"
    ],
    "avistamientos": [],
-   "novedades": [],
    "fecha": "2026-11-06",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-06"
@@ -452,13 +413,6 @@
      "fecha": "2026-10-10",
      "zona": "Estacionamiento del Chedraui",
      "comentario": "Andaba bajo la lluvia junto con la perrita color miel (caso 2026-11-009)."
-    }
-   ],
-   "novedades": [
-    {
-     "fecha": "2026-11-06",
-     "estado": "En seguimiento",
-     "comentario": "Es el perrito café con blanco que acompaña a la perrita color miel del caso 2026-11-009 en el estacionamiento del Chedraui. Las vecinas les dan seguimiento a los dos."
     }
    ],
    "fecha": "2026-11-06",

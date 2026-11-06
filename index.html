@@ -338,12 +338,6 @@ function tarjeta(c) {
       `${fecha(a.fecha)}${a.zona ? " en " + a.zona : ""}${a.comentario ? ": " + a.comentario : ""}`)));
     cuerpo.append(el("div", { className: "historia" }, el("h4", {}, { o: "👀 Lo vieron por aquí", a: "👀 La vieron por aquí" }[genero(c)] || "👀 Se vio por aquí"), ul));
   }
-  if (c.novedades.length) {
-    const ul = el("ul");
-    c.novedades.forEach(n => ul.append(el("li", {},
-      `${fecha(n.fecha)}${n.estado ? " · " + n.estado : ""}${n.comentario ? ": " + n.comentario : ""}`)));
-    cuerpo.append(el("div", { className: "historia" }, el("h4", {}, "📌 Novedades"), ul));
-  }
   if (c.fecha_cierre) {
     cuerpo.append(el("div", { className: "meta" }, `💛 Final feliz el ${fecha(c.fecha_cierre)}`));
   }
@@ -406,7 +400,7 @@ document.getElementById("f-lugar").addEventListener("change", e => { filtroLugar
 fetch("casos.json", { cache: "no-cache" })
   .then(r => r.json())
   .then(d => {
-    // Después, las que tienen novedades más recientes; los finales felices van al final.
+    // Después, las actualizadas más recientemente; los finales felices van al final.
     const cerrado = c => c.estado === "Adoptada" || c.estado === "Ya volvió a casa" ? 1 : 0;
     // Las que siguen en la calle van hasta arriba: son las más urgentes.
     const calle = c => lugar(c) === "calle" ? 0 : 1;
