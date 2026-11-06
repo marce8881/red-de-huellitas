@@ -16,29 +16,43 @@ Condado". #SOYVOLUNTARIOCEFODEH
 | `index.html` | La página. Lee `casos.json` y muestra las tarjetas, los contadores y los filtros. |
 | `casos.json` | Los casos aprobados, **sólo con datos públicos**. Lo genera el script. |
 | `casos/<id_caso>/foto-N.jpg` | Fotos de las mascotas que tienen permiso de publicarse. |
-| `herramientas/sheet_to_json.py` | Convierte el CSV de la Sheet privada en `casos.json` y sincroniza las fotos. |
+| `herramientas/casos.py` | Lleva la carga privada de casos e importa la Sheet; `publicar` genera `casos.json`. |
+| `herramientas/sheet_to_json.py` | Las reglas de publicación: filtra datos privados, arma `casos.json` y sincroniza las fotos. |
+| `privado/` | **No se sube** (está en `.gitignore`). La carga de casos, las descargas de la Sheet, los originales del chat y los recortes de fotos. |
 | `assets/banner.jpg` | El banner del cartel. |
 
 Este repo es **público**. La Sheet con las respuestas del formulario es privada y nunca se sube
-aquí: `.gitignore` bloquea los archivos CSV y Excel.
+aquí: `.gitignore` bloquea `privado/` y los archivos CSV y Excel.
 
 ## Mantener la página
 
-**Cada ronda de moderación**
-1. En la Sheet privada, revisar las respuestas nuevas y llenar `aprobado` (`sí`), `id_caso` y
-   `contacto_publico`. En los avistamientos y las novedades, `id_caso` es el del caso original.
-2. *Archivo → Descargar → Valores separados por comas (.csv)*. Se guarda en Descargas, **no** en
-   esta carpeta.
-3. Desde esta carpeta:
+**Cada ronda de moderación** (Marce aprueba en el chat con Claude; nadie teclea en la Sheet)
+
+La fuente de todos los casos es `privado/casos-carga.json`: una fila por reporte (del chat o del
+Form) con su moderación (`aprobado`, `id_caso`, `contacto_publico`, `fecha_cierre`,
+`nota_interna`). La Sheet sólo sirve para traer lo que llega por el Form.
+
+1. **Respuestas del Form:** en la Sheet, *Archivo → Descargar → Microsoft Excel (.xlsx)* y guardar
+   el archivo en `privado/sheet/`. Luego:
    ```
-   python3 herramientas/sheet_to_json.py ~/Downloads/<archivo>.csv --fotos ~/Documents/UVM/adopcion-mascotas/modulo-6/fotos-casos
+   python3 herramientas/casos.py importar-sheet "privado/sheet/<archivo>.xlsx"
    ```
-   El script imprime cuántos casos hay en cada estado. Si encuentra algo que parece un teléfono
-   fuera de un contacto público, se detiene sin escribir nada.
-4. Revisar los cambios con `git diff casos.json`. Los únicos teléfonos que pueden aparecer son los
-   de `contacto_cuidador`, y sólo si venían en un cartel público.
-5. `git add .`, `git commit -m "Actualiza casos DD/MM"` y `git push`. La página se actualiza en
-   1–2 minutos.
+   Sólo suma las respuestas que la carga aún no tiene (las reconoce por su marca temporal).
+2. **Casos del chat:** las capturas y carteles van a `privado/originales/AAAA-MM-DD/`. Claude los
+   revisa, recorta las fotos a `privado/fotos/<id_caso>/foto-N.jpg` y agrega las filas con
+   `casos.py agregar` (o corrige con `casos.py editar`).
+3. **Aprobación:** Claude muestra en el chat cómo quedaría cada tarjeta y Marce dice sí o no.
+   Sólo entonces se pone `aprobado = sí`.
+4. `python3 herramientas/casos.py comparar` muestra qué cambiaría sin escribir nada, y
+   `python3 herramientas/casos.py publicar` escribe `casos.json` y copia las fotos a `casos/`. Si
+   encuentra algo que parece un teléfono fuera de un contacto público, se detiene sin escribir.
+5. Revisar `git diff casos.json`. Los únicos teléfonos que pueden aparecer son los de
+   `contacto_cuidador`, y sólo si venían en un cartel público.
+6. `git add` sólo de `casos.json` y las carpetas de `casos/` que cambiaron (nunca `privado/`),
+   `git commit -m "Actualiza casos DD/MM"` y `git push`. La página se actualiza en 1–2 minutos.
+
+**Respaldo:** `privado/` no está en GitHub ni en Drive. Hay que incluir esta carpeta en el
+respaldo de la Mac (Time Machine o iCloud); si se pierde la carga, se pierde la moderación.
 
 **Cerrar un caso:** cuando una mascota es adoptada o vuelve a casa, se agrega una novedad (o se
 cambia su estado) y se pone la fecha en `fecha_cierre`. La tarjeta se queda como final feliz.

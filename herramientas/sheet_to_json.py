@@ -29,6 +29,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 SALIDA = RAIZ / "casos.json"
 FOTOS_WEB = RAIZ / "casos"
+PRIVADO = RAIZ / "privado"  # ignorada por git: carga, descargas de la Sheet, originales
 
 # Encabezado de la Sheet (texto de la pregunta) -> clave interna.
 # "¿Cómo está ahora?" aparece dos veces: la 1.ª es P10 (sección 2), la 2.ª es P19 (novedades).
@@ -128,26 +129,32 @@ def tipo(valor):
     return ""
 
 
+def claves(encabezados):
+    """Encabezados de la Sheet -> claves internas ("" si la columna no se usa)."""
+    salida, vistos_estado = [], 0
+    for h in encabezados:
+        n = norm(h)
+        if n.startswith("¿cómo está ahora?") and n != "¿cómo está ahora? (novedades)":
+            vistos_estado += 1
+            salida.append("estado" if vistos_estado == 1 else "estado_novedad")
+        else:
+            salida.append(PREGUNTAS.get(n, ""))  # columnas no listadas se ignoran
+    return salida
+
+
 def leer_csv(ruta):
     with open(ruta, encoding="utf-8-sig", newline="") as f:
         filas = list(csv.reader(f))
     if not filas:
         sys.exit("El CSV está vacío.")
-    claves, vistos_estado = [], 0
-    for h in filas[0]:
-        n = norm(h)
-        if n.startswith("¿cómo está ahora?") and n != "¿cómo está ahora? (novedades)":
-            vistos_estado += 1
-            claves.append("estado" if vistos_estado == 1 else "estado_novedad")
-        else:
-            claves.append(PREGUNTAS.get(n, ""))  # columnas no listadas se ignoran
-    faltan = {"tipo", "aprobado", "id_caso"} - set(claves)
+    cols = claves(filas[0])
+    faltan = {"tipo", "aprobado", "id_caso"} - set(cols)
     if faltan:
         sys.exit(f"Al CSV le faltan columnas: {sorted(faltan)}. ¿Es el export de la Sheet?")
     salida = []
     for fila in filas[1:]:
         r = {}
-        for clave, valor in zip(claves, fila):
+        for clave, valor in zip(cols, fila):
             if clave and valor.strip() and not r.get(clave):
                 r[clave] = valor.strip()
         salida.append(r)
@@ -236,26 +243,32 @@ def construir(filas):
     return casos, avisos
 
 
-def sincronizar_fotos(casos, fotos_origen):
+def sincronizar_fotos(casos, fotos_origen, simular=False):
+    """Copia las fotos a casos/ y quita las que ya no se publican. Con simular=True sólo calcula
+    la lista de fotos de cada caso y avisa qué se quitaría, sin tocar casos/."""
     FOTOS_WEB.mkdir(exist_ok=True)
     for c in casos.values():
         destino = FOTOS_WEB / c["id_caso"]
         if not c["_foto_ok"]:
             continue
+        nombres = {f.name for f in destino.glob("foto-*.jpg")} if destino.is_dir() else set()
         if fotos_origen:
             origen = fotos_origen / c["id_caso"]
             nuevas = sorted(origen.glob("foto-*.jpg")) if origen.is_dir() else []
-            if nuevas:
+            if nuevas and not simular:
                 destino.mkdir(exist_ok=True)
                 for f in nuevas:
                     shutil.copy2(f, destino / f.name)
-        if destino.is_dir():
-            c["fotos"] = [f"casos/{c['id_caso']}/{f.name}" for f in sorted(destino.glob("foto-*.jpg"))]
+            nombres |= {f.name for f in nuevas}
+        c["fotos"] = [f"casos/{c['id_caso']}/{n}" for n in sorted(nombres)]
     publicadas = {c["id_caso"] for c in casos.values() if c["fotos"]}
     for carpeta in FOTOS_WEB.iterdir():
         if carpeta.is_dir() and carpeta.name not in publicadas:
-            shutil.rmtree(carpeta)
-            print(f"  fotos quitadas de la página: casos/{carpeta.name}/")
+            if simular:
+                print(f"  (simulación) se quitarían las fotos de casos/{carpeta.name}/")
+            else:
+                shutil.rmtree(carpeta)
+                print(f"  fotos quitadas de la página: casos/{carpeta.name}/")
 
 
 def revisar_privacidad(casos):
@@ -271,16 +284,10 @@ def revisar_privacidad(casos):
     return hallazgos
 
 
-def main():
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("csv", type=Path, help="CSV exportado de la Sheet privada (fuera de este repo)")
-    p.add_argument("--fotos", type=Path, help="carpeta con <id_caso>/foto-N.jpg para copiar")
-    a = p.parse_args()
-
-    if RAIZ in a.csv.resolve().parents:
-        print("  ⚠ El CSV está dentro del repo público. Muévelo fuera (por ejemplo a Descargas).")
-
-    casos, avisos = construir(leer_csv(a.csv))
+def generar(filas, fotos=None, escribir=True):
+    """Filas (dicts con claves internas) -> casos.json. Devuelve los datos; con escribir=False no
+    toca casos.json ni casos/ (sirve para comparar antes de publicar)."""
+    casos, avisos = construir(filas)
     for av in avisos:
         print(f"  ⚠ {av}")
 
@@ -289,9 +296,9 @@ def main():
         print("\n✋ Encontré algo que parece teléfono fuera de un contacto público. No escribí nada:")
         for m in malos:
             print(f"   - {m}")
-        sys.exit("Corrige esas celdas en la Sheet, vuelve a exportar y corre otra vez.")
+        sys.exit("Corrige esos datos y corre otra vez.")
 
-    sincronizar_fotos(casos, a.fotos.expanduser() if a.fotos else None)
+    sincronizar_fotos(casos, fotos, simular=not escribir)
     publicos = []
     for c in casos.values():
         c.pop("_foto_ok")
@@ -300,6 +307,8 @@ def main():
     publicos.sort(key=lambda c: c["id_caso"])
 
     datos = {"actualizado": datetime.now().strftime("%Y-%m-%dT%H:%M"), "casos": publicos}
+    if not escribir:
+        return datos
     SALIDA.write_text(json.dumps(datos, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
     print(f"\ncasos.json: {len(publicos)} casos publicados")
@@ -310,6 +319,19 @@ def main():
         if etiqueta in conteo:
             print(f"  {etiqueta}: {conteo[etiqueta]}")
     print(f"  con foto: {sum(1 for c in publicos if c['fotos'])}")
+    return datos
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("csv", type=Path, help="CSV exportado de la Sheet privada (fuera de este repo)")
+    p.add_argument("--fotos", type=Path, help="carpeta con <id_caso>/foto-N.jpg para copiar")
+    a = p.parse_args()
+
+    if RAIZ in a.csv.resolve().parents and PRIVADO not in a.csv.resolve().parents:
+        print("  ⚠ El CSV está dentro del repo público. Muévelo a privado/ (git lo ignora).")
+
+    generar(leer_csv(a.csv), a.fotos.expanduser() if a.fotos else None)
 
 
 if __name__ == "__main__":

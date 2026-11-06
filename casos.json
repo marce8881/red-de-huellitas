@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-04T23:08",
+ "actualizado": "2026-11-06T12:56",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -393,6 +393,59 @@
    "fecha": "2024-12-12",
    "fecha_tipo": "evento",
    "actualizado": "2026-11-04"
+  },
+  {
+   "id_caso": "2026-11-015",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrita mestiza de pelo negro, corto y brillante, con ojitos color miel y orejitas caídas. Trae collar rosa con su nombre, sin placa. Perdió un ojito (la cirugía parece reciente) y tiene marcas de suturas de una esterilización reciente: alguien la cuidaba. Está resguardada en el IMCA Corregidora mientras aparece su familia.",
+   "sexo": "Hembra",
+   "edad": "",
+   "salud": [
+    "Esterilizada"
+   ],
+   "zona": "Carretera Sur Poniente, frente al Colegio Celta",
+   "estado": "Por confirmar",
+   "ubicacion": "Resguardada en el IMCA Corregidora",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-06",
+   "fecha_cierre": "",
+   "contacto_cuidador": "IMCA Corregidora (cartel Perrita perdida): 4421814844",
+   "fotos": [
+    "casos/2026-11-015/foto-1.jpg",
+    "casos/2026-11-015/foto-2.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-11-06",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-06"
+  },
+  {
+   "id_caso": "2026-11-016",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrito tipo pointer de tamaño mediano, blanco con manchas café oscuro (color \"hígado\") y orejitas café. Es muy manso y parece cansado; no sabemos cuánto ha caminado. Se le vio echado en un cajón del estacionamiento. Urge encontrar a su familia.",
+   "sexo": "Macho",
+   "edad": "",
+   "salud": [],
+   "zona": "Estacionamiento del Chedraui, Plaza Paseo Querétaro",
+   "estado": "Por confirmar",
+   "ubicacion": "En la calle",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-06",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-016/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "novedades": [],
+   "fecha": "2026-11-05",
+   "fecha_tipo": "evento",
+   "actualizado": "2026-11-06"
   }
  ]
 }
