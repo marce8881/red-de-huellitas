@@ -240,6 +240,12 @@ function genero(c) {
   const fin = (c.nombre || "").trim().toLowerCase().normalize("NFD").replace(/[^a-z]/g, "").slice(-1);
   return fin === "o" ? "o" : fin === "a" ? "a" : null;
 }
+// Insignia del estado con concordancia: "Perdido"/"Adoptado" si es macho. El valor de
+// c.estado no cambia (los filtros y colores lo siguen usando tal cual).
+function etiquetaEstado(c) {
+  if (genero(c) !== "o") return c.estado;
+  return { "Perdida": "Perdido", "Adoptada": "Adoptado" }[c.estado] || c.estado;
+}
 // "calle" si sigue en la calle (urge resguardarla); "" en cualquier otro caso. Las resguardadas
 // ya muestran dónde están con su etiqueta 📍.
 function lugar(c) {
@@ -319,7 +325,7 @@ function tarjeta(c) {
 
   const cuerpo = el("div", { className: "cuerpo" },
     el("div", { className: "insignias" },
-      el("span", { className: "estado", style: `background:${COLOR[c.estado] || "var(--confirmar)"}` }, c.estado),
+      el("span", { className: "estado", style: `background:${COLOR[c.estado] || "var(--confirmar)"}` }, etiquetaEstado(c)),
       lugar(c) === "calle" ? el("span", { className: "lugar calle" }, "🚨 En la calle") : null),
     el("h3", {}, titulo(c)),
     el("div", { className: "meta" }, `${c.zona || "Zona por confirmar"}${c.fecha ? " · " + textoFecha(c) : ""}`),
