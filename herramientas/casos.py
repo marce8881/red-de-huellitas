@@ -9,11 +9,15 @@ moderación), las descargas de la Sheet, los originales del chat y los recortes 
   casos.py editar ID campo=valor ...  corrige campos de un caso (el reporte, no sus novedades)
   casos.py recortar ORIGEN ID N X Y W H   recorta la foto N (sips -> privado/fotos/ID/foto-N.jpg)
   casos.py listar                     resumen de la carga
+  casos.py contactos ID               quién reporta, quién lo compartió, la fuente y el contacto
+                                      público del caso, con enlaces wa.me para enlazarlos rápido
   casos.py comparar                   qué cambiaría en casos.json, sin escribir nada
   casos.py publicar                   escribe casos.json y copia las fotos a casos/
 
 Las columnas son las de la Sheet; `aprobado`, `id_caso`, `contacto_publico`, `fecha_cierre` y
-`nota_interna` son de moderación. Sólo usa la librería estándar (openpyxl para importar-sheet).
+`nota_interna` son de moderación. `compartio_whatsapp`, `fuente` y `fuente_whatsapp` guardan
+quién lo compartió en el grupo (su WhatsApp) y quién lo publicó o confirmó (con su número). Son
+privadas: no están en PREGUNTAS de sheet_to_json, así que nunca llegan a casos.json. Sólo usa la librería estándar (openpyxl para importar-sheet).
 """
 import json
 import subprocess
@@ -41,6 +45,7 @@ COLUMNAS = [
     "Si este caso lo viste en el grupo, ¿quién lo compartió?", "¿Qué día lo compartió?",
     "Foto de la mascota", "Privacidad",
     "aprobado", "id_caso", "contacto_publico", "fecha_cierre", "nota_interna",
+    "compartio_whatsapp", "fuente", "fuente_whatsapp",
 ]
 DEFAULTS = {
     "Tu nombre": "Marcela Cadena",
@@ -176,6 +181,45 @@ def cmd_listar(_):
               "aprobado=" + (c.get("aprobado") or "—"), sep=" · ")
 
 
+def wa(numero):
+    """'+52 1 442 145 8504' -> 'https://wa.me/5214421458504' ("" si no hay número)."""
+    digitos = "".join(ch for ch in numero or "" if ch.isdigit())
+    if len(digitos) == 10:
+        digitos = "52" + digitos
+    if len(digitos) == 13 and digitos.startswith("521"):  # el "1" de celular viejo sobra en wa.me
+        digitos = "52" + digitos[3:]
+    return f"https://wa.me/{digitos}" if digitos else ""
+
+
+def cmd_contactos(args):
+    filas = [c for c in cargar()["casos"] if c.get("id_caso") == args[0]]
+    if not filas:
+        sys.exit(f"No hay filas con id_caso {args[0]}")
+
+    def linea(etiqueta, nombre, numero):
+        nombre, numero = (nombre or "").strip(), (numero or "").strip()
+        if not nombre and not numero:
+            return f"  {etiqueta}: falta"
+        num = f" · {numero} → {wa(numero)}" if numero else " · WhatsApp: falta"
+        return f"  {etiqueta}: {nombre or '(sin nombre)'}{num}"
+
+    for c in filas:
+        t = s2j.tipo(c.get("¿Qué quieres reportar?")) or "?"
+        print(f"{args[0]} · {t} · {c.get('Marca temporal', '')}"
+              f" · {c.get('¿Cómo se llama? (si tiene nombre)') or c.get('¿De qué mascota se trata?') or ''}")
+        if c.get("Tu nombre") == DEFAULTS["Tu nombre"]:
+            print("  Reporta: Marcela Cadena (administradora)")
+        else:
+            print(linea("Reporta", c.get("Tu nombre"), c.get("Tu WhatsApp (no se publica)")))
+        print(linea("Lo compartió en el grupo", c.get("Si este caso lo viste en el grupo, ¿quién lo compartió?"),
+                    c.get("compartio_whatsapp")))
+        print(linea("Fuente", c.get("fuente"), c.get("fuente_whatsapp")))
+        if t in ("rescate", "perdida"):
+            publico = c.get("¿Quién la cuida ahora?") if s2j.si(c.get("contacto_publico")) else ""
+            print(f"  Contacto público: {publico or '(por la administradora)'}")
+        print()
+
+
 def cmd_comparar(_):
     nuevo = s2j.generar(a_filas(cargar()), FOTOS, escribir=False)
     actual = json.loads(s2j.SALIDA.read_text(encoding="utf-8")) if s2j.SALIDA.exists() else {"casos": []}
@@ -201,7 +245,7 @@ def cmd_publicar(_):
 
 
 COMANDOS = {"importar-sheet": cmd_importar_sheet, "agregar": cmd_agregar, "editar": cmd_editar,
-            "recortar": cmd_recortar, "listar": cmd_listar, "comparar": cmd_comparar,
+            "recortar": cmd_recortar, "listar": cmd_listar, "contactos": cmd_contactos, "comparar": cmd_comparar,
             "publicar": cmd_publicar}
 
 if __name__ == "__main__":

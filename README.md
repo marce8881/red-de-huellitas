@@ -41,6 +41,10 @@ Form) con su moderación (`aprobado`, `id_caso`, `contacto_publico`, `fecha_cier
 2. **Casos del chat:** las capturas y carteles van a `privado/originales/AAAA-MM-DD/`. Claude los
    revisa, recorta las fotos a `privado/fotos/<id_caso>/foto-N.jpg` y agrega las filas con
    `casos.py agregar` (o corrige con `casos.py editar`).
+   Por cada caso se guarda, en columnas privadas de la carga, quién lo compartió en el grupo
+   (`compartio_whatsapp`) y la fuente que lo publicó o confirmó (`fuente`, `fuente_whatsapp`).
+   Nunca se publican. `python3 herramientas/casos.py contactos <id_caso>` los muestra con
+   enlaces de WhatsApp para enlazar rápido a la familia con quien tiene a la mascota.
 3. **Aprobación:** Claude muestra en el chat cómo quedaría cada tarjeta y Marce dice sí o no.
    Sólo entonces se pone `aprobado = sí`.
 4. `python3 herramientas/casos.py comparar` muestra qué cambiaría sin escribir nada, y
