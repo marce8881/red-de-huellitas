@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-07T10:09",
+ "actualizado": "2026-11-07T10:17",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -462,6 +462,30 @@
    "fecha": "2026-11-06",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-06"
+  },
+  {
+   "id_caso": "2026-11-019",
+   "tipo_reporte": "perdida",
+   "especie": "Gatito",
+   "nombre": "Zero",
+   "descripcion": "Gatito de pelo corto color crema, con orejitas y colita de tono más dorado, y ojos claros. Trae collar oscuro. Es tranquilo, pero asustadizo: si lo ves, no lo persigas. Podría estar herido.",
+   "sexo": "Macho",
+   "edad": "",
+   "salud": [],
+   "zona": "Real del Bosque y alrededores",
+   "estado": "Perdida",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-07",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-019/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-07",
+   "fecha_tipo": "evento",
+   "actualizado": "2026-11-07"
   }
  ]
 }
