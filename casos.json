@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-07T11:29",
+ "actualizado": "2026-11-07T14:36",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -418,16 +418,16 @@
    "tipo_reporte": "rescate",
    "especie": "Perrito",
    "nombre": "",
-   "descripcion": "Chihuahua macho de pelo corto color crema o beige claro, orejas grandes y paradas. Traía puesto un suetercito gris oscuro con estampado. Lo encontraron extraviado por una cancha de pádel en Cañadas. ¿Es de alguien? Urge encontrar a su familia. Una vecina lo resguarda mientras buscamos a su familia; si no aparece, ya hay una persona interesada en adoptarlo.",
+   "descripcion": "Chihuahua macho de pelo corto color crema o beige claro, orejas grandes y paradas. Traía puesto un suetercito gris oscuro con estampado. Lo encontraron extraviado por una cancha de pádel en Cañadas del Arroyo y una vecina lo resguardó mientras buscábamos a su familia. ¡Ya está de vuelta con su familia! 🙌 Gracias a todos los que compartieron.",
    "sexo": "Macho",
    "edad": "",
    "salud": [],
-   "zona": "Cancha de pádel, Cañadas",
-   "estado": "Por confirmar",
-   "ubicacion": "Con una vecina que lo resguarda",
+   "zona": "Cancha de pádel, Cañadas del Arroyo",
+   "estado": "Ya volvió a casa",
+   "ubicacion": "",
    "canalizado_apaqro": "",
    "fecha_reporte": "2026-11-06",
-   "fecha_cierre": "",
+   "fecha_cierre": "2026-11-07",
    "contacto_cuidador": "",
    "fotos": [
     "casos/2026-11-017/foto-1.jpg"
