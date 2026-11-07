@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06T17:10",
+ "actualizado": "2026-11-06T19:17",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -441,6 +441,32 @@
    "avistamientos": [],
    "fecha": "2026-11-06",
    "fecha_tipo": "evento",
+   "actualizado": "2026-11-06"
+  },
+  {
+   "id_caso": "2026-11-018",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Cachorro macho, todo negro, de pelo corto y orejitas caídas; tipo labrador. Súper juguetón. Busca familia en adopción responsable.",
+   "sexo": "Macho",
+   "edad": "",
+   "salud": [],
+   "zona": "",
+   "estado": "Buscando familia",
+   "ubicacion": "No sé",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-06",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-018/foto-1.jpg",
+    "casos/2026-11-018/foto-2.jpg",
+    "casos/2026-11-018/foto-3.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-06",
+   "fecha_tipo": "compartido",
    "actualizado": "2026-11-06"
   }
  ]
