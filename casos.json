@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-06T19:17",
+ "actualizado": "2026-11-06T19:23",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -231,7 +231,7 @@
    ],
    "fecha": "2026-09-20",
    "fecha_tipo": "compartido",
-   "actualizado": "2026-11-06"
+   "actualizado": "2026-11-03"
   },
   {
    "id_caso": "2026-11-010",
@@ -394,12 +394,12 @@
    "tipo_reporte": "rescate",
    "especie": "Perrito",
    "nombre": "",
-   "descripcion": "Perrito tipo pointer de tamaño mediano, blanco con manchas café oscuro (color \"hígado\") y orejitas café. Es muy manso y parece cansado. Anda en el estacionamiento del Chedraui junto con la perrita color miel del caso 2026-11-009; el 05/11 lo vieron echado en un cajón del estacionamiento. Urge encontrar a su familia.",
+   "descripcion": "Perrito tipo pointer de tamaño mediano, blanco con manchas café oscuro (color \"hígado\") y orejitas café. Es muy manso y parece cansado. Anda en el estacionamiento del Chedraui; el 05/11 lo vieron echado en un cajón del estacionamiento. Urge encontrar a su familia.",
    "sexo": "Macho",
    "edad": "",
    "salud": [],
    "zona": "Estacionamiento del Chedraui, Plaza Paseo Querétaro",
-   "estado": "En seguimiento",
+   "estado": "Por confirmar",
    "ubicacion": "En la calle",
    "canalizado_apaqro": "",
    "fecha_reporte": "2026-11-06",
@@ -408,13 +408,7 @@
    "fotos": [
     "casos/2026-11-016/foto-1.jpg"
    ],
-   "avistamientos": [
-    {
-     "fecha": "2026-10-10",
-     "zona": "Estacionamiento del Chedraui",
-     "comentario": "Andaba bajo la lluvia junto con la perrita color miel (caso 2026-11-009)."
-    }
-   ],
+   "avistamientos": [],
    "fecha": "2026-11-06",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-06"
