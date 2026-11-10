@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-07T14:36",
+ "actualizado": "2026-11-10T13:39",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -486,6 +486,32 @@
    "fecha": "2026-11-07",
    "fecha_tipo": "evento",
    "actualizado": "2026-11-07"
+  },
+  {
+   "id_caso": "2026-11-020",
+   "tipo_reporte": "perdida",
+   "especie": "Perrito",
+   "nombre": "Mochi",
+   "descripcion": "Perrita pug de 2 años, beige grisácea con carita y orejitas negras. Está tomando medicamentos: es urgente que regrese a casa. Se la llevaron en la calle Mar del Norte. Su familia ofrece recompensa y la extraña mucho.",
+   "sexo": "Hembra",
+   "edad": "2 años",
+   "salud": [
+    "Está tomando medicamentos"
+   ],
+   "zona": "Colonia Las Hadas",
+   "estado": "Perdida",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-09",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Familia · 55 4143 6050",
+   "fotos": [
+    "casos/2026-11-020/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-09",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-09"
   }
  ]
 }
