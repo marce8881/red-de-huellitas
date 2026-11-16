@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-10T13:39",
+ "actualizado": "2026-11-16T12:49",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -512,6 +512,102 @@
    "fecha": "2026-11-09",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-09"
+  },
+  {
+   "id_caso": "2026-11-021",
+   "tipo_reporte": "perdida",
+   "especie": "Perrito",
+   "nombre": "Yuko",
+   "descripcion": "Pastor alemán de 11 meses, negro con café en patas, cejas y pecho, y orejas paradas. Es perro de apoyo y asistencia, entrenado para ayudar a un niño con discapacidad: su regreso es de suma importancia para él y su familia. Su familia ofrece $4,000 de recompensa.",
+   "sexo": "Macho",
+   "edad": "11 meses",
+   "salud": [],
+   "zona": "Av. de los Venados, col. Vista Real (Corregidora)",
+   "estado": "Perdida",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-16",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Su familia (cartel ¡Se busca a Yuko!): 442 469 9388 / 442 377 6215 / 442 616 2434",
+   "fotos": [
+    "casos/2026-11-021/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-16",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-16"
+  },
+  {
+   "id_caso": "2026-11-022",
+   "tipo_reporte": "perdida",
+   "especie": "Perrito",
+   "nombre": "Molly",
+   "descripcion": "Perrita blanca con manchas gris oscuro en la carita, una oreja y el lomo; tipo pitbull, de orejitas caídas. Trae collar de cadena. Se salió de Vista Real en la madrugada del 15 de noviembre.",
+   "sexo": "Hembra",
+   "edad": "",
+   "salud": [],
+   "zona": "Vista Real (Corregidora)",
+   "estado": "Perdida",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-15",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Su familia: WhatsApp 442 249 7146 / 442 400 1423",
+   "fotos": [
+    "casos/2026-11-022/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-15",
+   "fecha_tipo": "evento",
+   "actualizado": "2026-11-15"
+  },
+  {
+   "id_caso": "2026-11-023",
+   "tipo_reporte": "perdida",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Shih tzu color café chocolate, de pelo largo y pecho más claro. Trae placa. Se salió de casa alrededor de las 3 p.m. ¡Ya volvió a casa esa misma noche! Gracias a todos los que estuvieron atentos.",
+   "sexo": "",
+   "edad": "",
+   "salud": [],
+   "zona": "Turmalina, El Condado",
+   "estado": "Ya volvió a casa",
+   "ubicacion": "",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-14",
+   "fecha_cierre": "2026-11-14",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-023/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-14",
+   "fecha_tipo": "evento",
+   "actualizado": "2026-11-14"
+  },
+  {
+   "id_caso": "2026-11-024",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrito blanco de pelo corto y orejitas color crema. Lo dejaron amarrado y abandonado cerca del Hospital Santiago de Querétaro. Le dieron agua, comida y una toalla, pero necesita un lugar donde lo puedan resguardar o recibir.",
+   "sexo": "",
+   "edad": "",
+   "salud": [],
+   "zona": "Cerca del Hospital Santiago, Querétaro",
+   "estado": "Por confirmar",
+   "ubicacion": "En la calle",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-15",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-024/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-15",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-15"
   }
  ]
 }
