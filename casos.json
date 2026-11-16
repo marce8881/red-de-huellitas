@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-16T12:49",
+ "actualizado": "2026-11-16T17:30",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -532,7 +532,13 @@
    "fotos": [
     "casos/2026-11-021/foto-1.jpg"
    ],
-   "avistamientos": [],
+   "avistamientos": [
+    {
+     "fecha": "2026-11-16",
+     "zona": "Av. de los Venados, casi al inicio de la calle",
+     "comentario": "Posible avistamiento, sin confirmar: un vecino vio un perro parecido a Yuko, tipo pastor alemán y cachorro (de unos 7 a 10 meses), metido entre las ramas como buscando algo. Si estás ayudando a buscar a Yuko y quieres hablar con quien lo vio, escribe a Red de Huellitas."
+    }
+   ],
    "fecha": "2026-11-16",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-16"
