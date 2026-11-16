@@ -6,8 +6,8 @@ en un solo lugar y al día. Página 100 % informativa: aquí no se pide ni se ma
 Página: https://marce8881.github.io/red-de-huellitas/ ·
 Reportar una mascota: https://forms.gle/DUsJKwRDwnp5ZUmSA
 
-Proyecto de servicio social (CEFODEH, UVM) de Marcela Cadena con la comunidad de "Mascotas
-Condado". #SOYVOLUNTARIOCEFODEH
+Nació del servicio social de Marcela Cadena con CEFODEH. Hoy es un proyecto de la comunidad
+"Mascotas Condado" que seguimos manteniendo entre vecinos.
 
 ## Qué hay aquí
 
