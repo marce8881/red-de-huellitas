@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-16T17:30",
+ "actualizado": "2026-11-16T18:25",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -518,27 +518,21 @@
    "tipo_reporte": "perdida",
    "especie": "Perrito",
    "nombre": "Yuko",
-   "descripcion": "Pastor alemán de 11 meses, negro con café en patas, cejas y pecho, y orejas paradas. Es perro de apoyo y asistencia, entrenado para ayudar a un niño con discapacidad: su regreso es de suma importancia para él y su familia. Su familia ofrece $4,000 de recompensa.",
+   "descripcion": "Pastor alemán de 11 meses, negro con café en patas, cejas y pecho, y orejas paradas. Es perro de apoyo y asistencia, entrenado para ayudar a un niño con discapacidad. ¡Ya apareció y está de vuelta con su familia! 🙌 Gracias a todos los que compartieron y estuvieron atentos.",
    "sexo": "Macho",
    "edad": "11 meses",
    "salud": [],
    "zona": "Av. de los Venados, col. Vista Real (Corregidora)",
-   "estado": "Perdida",
+   "estado": "Ya volvió a casa",
    "ubicacion": "",
    "canalizado_apaqro": "",
    "fecha_reporte": "2026-11-16",
-   "fecha_cierre": "",
-   "contacto_cuidador": "Su familia (cartel ¡Se busca a Yuko!): 442 469 9388 / 442 377 6215 / 442 616 2434",
+   "fecha_cierre": "2026-11-16",
+   "contacto_cuidador": "",
    "fotos": [
     "casos/2026-11-021/foto-1.jpg"
    ],
-   "avistamientos": [
-    {
-     "fecha": "2026-11-16",
-     "zona": "Av. de los Venados, casi al inicio de la calle",
-     "comentario": "Posible avistamiento, sin confirmar: un vecino vio un perro parecido a Yuko, tipo pastor alemán y cachorro (de unos 7 a 10 meses), metido entre las ramas como buscando algo. Si estás ayudando a buscar a Yuko y quieres hablar con quien lo vio, escribe a Red de Huellitas."
-    }
-   ],
+   "avistamientos": [],
    "fecha": "2026-11-16",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-16"
