@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-16T18:25",
+ "actualizado": "2026-11-17T12:16",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -608,6 +608,31 @@
    "fecha": "2026-11-15",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-15"
+  },
+  {
+   "id_caso": "2026-11-025",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "Ámbar",
+   "descripcion": "Perrita Jack Russell, blanca con orejitas y manchas café en la carita. Es buena y noble y le encanta jugar con otros perritos. Su familia ya no tiene tiempo para darle la atención que necesita: pasa sola todo el día. Buscan una familia que viva en El Condado para que se quede cerquita.",
+   "sexo": "Hembra",
+   "edad": "9 meses",
+   "salud": [],
+   "zona": "El Condado",
+   "estado": "Buscando familia",
+   "ubicacion": "Con su familia",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-17",
+   "fecha_cierre": "",
+   "contacto_cuidador": "",
+   "fotos": [
+    "casos/2026-11-025/foto-1.jpg",
+    "casos/2026-11-025/foto-2.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-17",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-17"
   }
  ]
 }
