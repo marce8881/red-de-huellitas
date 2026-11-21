@@ -228,7 +228,7 @@ const ESTADOS = [
 ];
 const COLOR = Object.fromEntries(ESTADOS);
 const ORDEN = Object.fromEntries(ESTADOS.map(([e], i) => [e, i]));
-let casos = [], filtroEstado = "", filtroEspecie = "", filtroLugar = "";
+let casos = [], filtroEstado = "", filtroEspecie = "", filtroLugar = "", versionFotos = "";
 const esFinalFeliz = c => c.estado === "Adoptada" || c.estado === "Ya volvió a casa";
 
 function el(tag, props = {}, ...hijos) {
@@ -326,7 +326,9 @@ function descripcion(c) {
 function tarjeta(c) {
   const fotos = el("div", { className: "fotos" });
   if (c.fotos.length) {
-    c.fotos.forEach((src, i) => fotos.append(el("img", { src, loading: "lazy",
+    // ?v= cambia en cada publicación: si se reemplaza una foto con el mismo nombre, el navegador
+    // no se queda con la copia vieja.
+    c.fotos.forEach((src, i) => fotos.append(el("img", { src: `${src}?v=${encodeURIComponent(versionFotos)}`, loading: "lazy",
       alt: `Foto ${i + 1} de ${titulo(c)}` })));
   } else {
     fotos.append(el("div", { className: "sin-foto", "aria-hidden": "true" }, c.especie === "Gatito" ? "🐱" : "🐶"));
@@ -442,6 +444,7 @@ fetch("casos.json", { cache: "no-cache" })
                                    (b.actualizado || "").localeCompare(a.actualizado || "") ||
                                    (b.fecha || "").localeCompare(a.fecha || "") ||
                                    (ORDEN[a.estado] ?? 9) - (ORDEN[b.estado] ?? 9));
+    versionFotos = d.actualizado || "";
     const [dia, hora] = d.actualizado.split("T");
     document.getElementById("actualizado").textContent =
       `${casos.length} mascotas registradas · Actualizado el ${fecha(dia)} a las ${hora}`;
