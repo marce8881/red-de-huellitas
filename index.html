@@ -99,6 +99,17 @@
   .alt-form { font-size: 13px; text-align: right; }
   .vacio { padding: 30px; text-align: center; color: var(--tinta-suave); grid-column: 1 / -1; }
 
+  .exitos { margin-top: 28px; }
+  .exitos > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px;
+                      padding: 12px 16px; border: 2px solid var(--feliz); border-radius: 14px;
+                      background: var(--tarjeta); color: var(--feliz); font-weight: 800; font-size: 17px; }
+  .exitos > summary::-webkit-details-marker { display: none; }
+  .exitos > summary::after { content: "▾"; margin-left: auto; font-size: 20px; transition: transform .2s; }
+  .exitos[open] > summary::after { transform: rotate(180deg); }
+  .exitos > summary:hover { background: #eaf4ed; }
+  .exitos > summary small { font-weight: 600; color: var(--tinta-suave); font-size: 14px; }
+  .exitos .rejilla { margin-top: 16px; }
+
   .como { margin: 40px 0 10px; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
   .paso { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 14px; padding: 16px; }
   .paso h3 { font-size: 19px; margin-bottom: 6px; }
@@ -154,6 +165,11 @@
   </div>
 
   <section class="rejilla" id="rejilla" aria-live="polite"></section>
+
+  <details class="exitos" id="exitos" hidden>
+    <summary></summary>
+    <div class="rejilla" id="rejilla-exitos"></div>
+  </details>
 
   <section class="como" aria-label="Cómo funciona">
     <div class="paso">
@@ -213,6 +229,7 @@ const ESTADOS = [
 const COLOR = Object.fromEntries(ESTADOS);
 const ORDEN = Object.fromEntries(ESTADOS.map(([e], i) => [e, i]));
 let casos = [], filtroEstado = "", filtroEspecie = "", filtroLugar = "";
+const esFinalFeliz = c => c.estado === "Adoptada" || c.estado === "Ya volvió a casa";
 
 function el(tag, props = {}, ...hijos) {
   const n = document.createElement(tag);
@@ -375,9 +392,18 @@ function pintar() {
   const visibles = casos.filter(c => (!filtroEstado || c.estado === filtroEstado) &&
                                      (!filtroEspecie || c.especie === filtroEspecie) &&
                                      (!filtroLugar || lugar(c) === filtroLugar));
+  // Con "Todas", los finales felices van aparte, en una sección que se abre y se cierra.
+  // Con el chip "Adoptada" o "Ya volvió a casa" se ven en la rejilla principal.
+  const felices = filtroEstado ? [] : visibles.filter(esFinalFeliz);
+  const abiertos = filtroEstado ? visibles : visibles.filter(c => !esFinalFeliz(c));
   const rejilla = document.getElementById("rejilla");
-  rejilla.replaceChildren(...visibles.map(tarjeta));
-  if (!visibles.length) rejilla.append(el("p", { className: "vacio" }, "No hay mascotas con ese filtro por ahora."));
+  rejilla.replaceChildren(...abiertos.map(tarjeta));
+  if (!abiertos.length) rejilla.append(el("p", { className: "vacio" }, "No hay mascotas con ese filtro por ahora."));
+  const exitos = document.getElementById("exitos");
+  exitos.hidden = !felices.length;
+  exitos.querySelector("summary").replaceChildren(`💛 Finales felices (${felices.length})`,
+    el("small", {}, "adoptadas y de vuelta en casa"));
+  document.getElementById("rejilla-exitos").replaceChildren(...felices.map(tarjeta));
   ajustarVerMas();
 
   const conteo = {};
@@ -402,12 +428,14 @@ arriba.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 addEventListener("scroll", () => arriba.classList.toggle("visible", scrollY > 600), { passive: true });
 document.getElementById("f-especie").addEventListener("change", e => { filtroEspecie = e.target.value; pintar(); });
 document.getElementById("f-lugar").addEventListener("change", e => { filtroLugar = e.target.value; pintar(); });
+// Las tarjetas de una sección cerrada no tienen alto: el "Ver más" se calcula al abrirla.
+document.getElementById("exitos").addEventListener("toggle", ajustarVerMas);
 
 fetch("casos.json", { cache: "no-cache" })
   .then(r => r.json())
   .then(d => {
     // Después, las actualizadas más recientemente; los finales felices van al final.
-    const cerrado = c => c.estado === "Adoptada" || c.estado === "Ya volvió a casa" ? 1 : 0;
+    const cerrado = c => esFinalFeliz(c) ? 1 : 0;
     // Las que siguen en la calle van hasta arriba: son las más urgentes.
     const calle = c => lugar(c) === "calle" ? 0 : 1;
     casos = d.casos.sort((a, b) => cerrado(a) - cerrado(b) || calle(a) - calle(b) ||

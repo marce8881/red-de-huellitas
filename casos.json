@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-17T12:46",
+ "actualizado": "2026-11-21T13:04",
  "casos": [
   {
    "id_caso": "2026-11-001",
@@ -59,7 +59,7 @@
    "nombre": "Arka",
    "descripcion": "Cachorrita de pelo corto negro con café, con una franja blanca en la carita, el pecho blanco, orejitas caídas y un ojito azul. Será de tamaño mediano a grande. Ya tiene collar con placa. Es tímida, cariñosa y le gusta pasear. Busca una familia para amar.",
    "sexo": "Hembra",
-   "edad": "5 meses",
+   "edad": "6 meses",
    "salud": [
     "Vacunada",
     "Desparasitada",
@@ -78,7 +78,7 @@
    "avistamientos": [],
    "fecha": "2026-11-03",
    "fecha_tipo": "compartido",
-   "actualizado": "2026-11-04"
+   "actualizado": "2026-11-21"
   },
   {
    "id_caso": "2026-11-004",
@@ -231,7 +231,7 @@
    ],
    "fecha": "2026-09-20",
    "fecha_tipo": "compartido",
-   "actualizado": "2026-11-03"
+   "actualizado": "2026-11-21"
   },
   {
    "id_caso": "2026-11-010",
@@ -633,6 +633,108 @@
    "fecha": "2026-11-17",
    "fecha_tipo": "compartido",
    "actualizado": "2026-11-17"
+  },
+  {
+   "id_caso": "2026-11-026",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "",
+   "descripcion": "Perrito de unos 2 años, de pelo corto gris azulado moteado con negro, carita negra y patitas color fuego; tipo pastor ganadero australiano (blue heeler). Vive afuera de la casa de su tutor, que falleció. Merece un hogar donde lo cuiden y lo quieran.",
+   "sexo": "Macho",
+   "edad": "2 años aprox.",
+   "salud": [],
+   "zona": "",
+   "estado": "Buscando familia",
+   "ubicacion": "Afuera de la casa de su tutor",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-20",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Informes para adoptarlo (cartel En adopción): 4424120547",
+   "fotos": [
+    "casos/2026-11-026/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-20",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-20"
+  },
+  {
+   "id_caso": "2026-11-027",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "Güero",
+   "descripcion": "Güero es un cachorro de 4 meses, blanco con motitas en las patitas y orejitas suaves. Es uno de tres hermanitos (con Bandido y Mapache) que buscan su hogar para siempre. Está sano y tiene sus primeras vacunas. Lo rescató Anthony, que recibe a los perritos que aparecen en la presa de Cañadas, y lo cuida mientras encuentra familia.",
+   "sexo": "Macho",
+   "edad": "4 meses",
+   "salud": [
+    "Primeras vacunas"
+   ],
+   "zona": "Presa de Cañadas",
+   "estado": "Buscando familia",
+   "ubicacion": "Con quien la rescató",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-21",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Anthony, quien lo rescató: 4482100006 · Constanza: 4481078440",
+   "fotos": [
+    "casos/2026-11-027/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-21",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-21"
+  },
+  {
+   "id_caso": "2026-11-028",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "Bandido",
+   "descripcion": "Bandido es un cachorro de 4 meses, blanco con negro: orejitas y lomo negros y carita blanca. Es uno de tres hermanitos (con Güero y Mapache) que buscan su hogar para siempre. Está sano y tiene sus primeras vacunas. Lo rescató Anthony, que recibe a los perritos que aparecen en la presa de Cañadas, y lo cuida mientras encuentra familia.",
+   "sexo": "Macho",
+   "edad": "4 meses",
+   "salud": [
+    "Primeras vacunas"
+   ],
+   "zona": "Presa de Cañadas",
+   "estado": "Buscando familia",
+   "ubicacion": "Con quien la rescató",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-21",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Anthony, quien lo rescató: 4482100006 · Constanza: 4481078440",
+   "fotos": [
+    "casos/2026-11-028/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-21",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-21"
+  },
+  {
+   "id_caso": "2026-11-029",
+   "tipo_reporte": "rescate",
+   "especie": "Perrito",
+   "nombre": "Mapache",
+   "descripcion": "Mapache es un cachorro de 4 meses, moteado gris con negro, con la carita y las orejitas oscuras. Es uno de tres hermanitos (con Güero y Bandido) que buscan su hogar para siempre. Está sano y tiene sus primeras vacunas. Lo rescató Anthony, que recibe a los perritos que aparecen en la presa de Cañadas, y lo cuida mientras encuentra familia.",
+   "sexo": "Macho",
+   "edad": "4 meses",
+   "salud": [
+    "Primeras vacunas"
+   ],
+   "zona": "Presa de Cañadas",
+   "estado": "Buscando familia",
+   "ubicacion": "Con quien la rescató",
+   "canalizado_apaqro": "",
+   "fecha_reporte": "2026-11-21",
+   "fecha_cierre": "",
+   "contacto_cuidador": "Anthony, quien lo rescató: 4482100006 · Constanza: 4481078440",
+   "fotos": [
+    "casos/2026-11-029/foto-1.jpg"
+   ],
+   "avistamientos": [],
+   "fecha": "2026-11-21",
+   "fecha_tipo": "compartido",
+   "actualizado": "2026-11-21"
   }
  ]
 }
